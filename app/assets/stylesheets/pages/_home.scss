@@ -1,1 +1,9 @@
-// Specific CSS for your home-page
+.search{
+// position: relative;
+background: linear-gradient( rgba(255, 255, 255, 0.9) 0%, white 25%);
+box-shadow: 0 1px 3px 0 rgba(0,0,0,.25);
+border-radius: 4px;
+}
+.search input{
+color:black;
+}

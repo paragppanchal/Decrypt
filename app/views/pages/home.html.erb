@@ -1,6 +1,11 @@
 <div class="home-banner">
-  <h1>Le Wagon</h1>
-  <p><%= link_to 'view bitcoin', buy_bitcoin_path %></p>
+  <div class="search">
+    <%= form_tag(buy_bitcoin_path, method: :get) do %>
+    <h1>Buy <%= text_field_tag :query %> in Bitcoin <%= submit_tag 'SEARCH', :style => "width: 200px;" %>
+      <% end %>
+    </h1>
+    <p><%= link_to 'view bitcoin', buy_bitcoin_path %></p>
+  </div>
 </div>
 
 <div class="container">
