@@ -1,6 +1,20 @@
-<h1>Pages#home</h1>
-<ul>
-  <li><%= link_to 'buy bitcoin', buy_bitcoin_path  %></li>
-<li><%= link_to 'sell bitcoin', sell_bitcoin_path  %></li>
-<li><%= link_to 'learning portal', learn_path  %></li>
-</ul>
+<div class="home-banner">
+  <h1>Le Wagon</h1>
+  <p><%= link_to 'view bitcoin', buy_bitcoin_path %></p>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <h1>Pages#home</h1>
+      <ul>
+        <li><%= link_to 'buy bitcoin', buy_bitcoin_path  %></li>
+        <li><%= link_to 'sell bitcoin', sell_bitcoin_path  %></li>
+        <li><%= link_to 'learning portal', learn_path  %></li>
+      </ul>
+      <%= "Lorem ipsum dolor sit amet, consectetur adipisicing elit " * 100 %>
+    </div>
+  </div>
+</div>
+
+
