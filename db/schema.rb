@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_21_023134) do
+ActiveRecord::Schema.define(version: 2018_08_21_023300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,9 @@ ActiveRecord::Schema.define(version: 2018_08_21_023134) do
     t.bigint "exchange_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["exchange_id"], name: "index_reviews_on_exchange_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -71,4 +73,5 @@ ActiveRecord::Schema.define(version: 2018_08_21_023134) do
   add_foreign_key "exchanges_coins", "coins"
   add_foreign_key "exchanges_coins", "exchanges"
   add_foreign_key "reviews", "exchanges"
+  add_foreign_key "reviews", "users"
 end
