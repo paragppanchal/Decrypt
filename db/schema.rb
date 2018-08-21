@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_21_015449) do
+ActiveRecord::Schema.define(version: 2018_08_21_022500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,26 @@ ActiveRecord::Schema.define(version: 2018_08_21_015449) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.json "payout_methods"
+    t.json "paymnt_methods"
+    t.json "available_in_au"
+    t.json "beginner_friendly"
+    t.json "integrated_wallet"
+    t.json "two_factor_auth"
+    t.json "cold_storage"
+    t.json "multisig_wallets"
   end
 
+  create_table "exchanges_coins", force: :cascade do |t|
+    t.bigint "exchange_id"
+    t.bigint "coin_id"
+    t.integer "live_price"
+    t.datetime "last_updated"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["coin_id"], name: "index_exchanges_coins_on_coin_id"
+    t.index ["exchange_id"], name: "index_exchanges_coins_on_exchange_id"
+  end
+
+  add_foreign_key "exchanges_coins", "coins"
+  add_foreign_key "exchanges_coins", "exchanges"
 end
