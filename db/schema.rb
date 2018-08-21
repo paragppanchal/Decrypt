@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_21_023509) do
+ActiveRecord::Schema.define(version: 2018_08_21_041733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,17 @@ ActiveRecord::Schema.define(version: 2018_08_21_023509) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "exchange_coins", force: :cascade do |t|
+    t.bigint "exchange_id"
+    t.bigint "coin_id"
+    t.integer "live_price"
+    t.datetime "last_updated"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["coin_id"], name: "index_exchange_coins_on_coin_id"
+    t.index ["exchange_id"], name: "index_exchange_coins_on_exchange_id"
+  end
+
   create_table "exchanges", force: :cascade do |t|
     t.string "name"
     t.string "country"
@@ -47,17 +58,6 @@ ActiveRecord::Schema.define(version: 2018_08_21_023509) do
     t.json "two_factor_auth"
     t.json "cold_storage"
     t.json "multisig_wallets"
-  end
-
-  create_table "exchanges_coins", force: :cascade do |t|
-    t.bigint "exchange_id"
-    t.bigint "coin_id"
-    t.integer "live_price"
-    t.datetime "last_updated"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["coin_id"], name: "index_exchanges_coins_on_coin_id"
-    t.index ["exchange_id"], name: "index_exchanges_coins_on_exchange_id"
   end
 
   create_table "learnings", force: :cascade do |t|
@@ -86,8 +86,8 @@ ActiveRecord::Schema.define(version: 2018_08_21_023509) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "exchanges_coins", "coins"
-  add_foreign_key "exchanges_coins", "exchanges"
+  add_foreign_key "exchange_coins", "coins"
+  add_foreign_key "exchange_coins", "exchanges"
   add_foreign_key "reviews", "exchanges"
   add_foreign_key "reviews", "users"
 end
