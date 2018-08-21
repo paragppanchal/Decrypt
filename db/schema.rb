@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_21_023300) do
+ActiveRecord::Schema.define(version: 2018_08_21_023509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blogs", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.string "written_by"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "coins", force: :cascade do |t|
     t.string "name"
@@ -50,6 +58,14 @@ ActiveRecord::Schema.define(version: 2018_08_21_023300) do
     t.datetime "updated_at", null: false
     t.index ["coin_id"], name: "index_exchanges_coins_on_coin_id"
     t.index ["exchange_id"], name: "index_exchanges_coins_on_exchange_id"
+  end
+
+  create_table "learnings", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.string "video_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reviews", force: :cascade do |t|
