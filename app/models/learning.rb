@@ -1,0 +1,2 @@
+class Learning < ApplicationRecord
+end
