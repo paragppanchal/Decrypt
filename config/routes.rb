@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'users/edit'
   get 'users/update'
   get 'users/destroy'
+  get 'buy/bitcoin', to: 'buy_rate#bitcoin', as: :buy_bitcoin
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
