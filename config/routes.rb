@@ -1,13 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'exchanges/index'
   get 'exchanges/show'
-  get 'users/index'
-  get 'users/show'
-  get 'users/new'
-  get 'users/create'
-  get 'users/edit'
-  get 'users/update'
-  get 'users/destroy'
   get 'buy/bitcoin', to: 'buy_rate#bitcoin', as: :buy_bitcoin
   get 'sell/bitcoin', to: 'sell_rate#bitcoin', as: :sell_bitcoin
   get 'learn', to: 'learning_portal#home', as: :learn
