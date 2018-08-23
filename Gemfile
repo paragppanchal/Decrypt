@@ -16,6 +16,8 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
+gem 'letter_opener', group: :development
+gem 'dotenv-rails', groups: [:development, :test]
 
 
 group :development do

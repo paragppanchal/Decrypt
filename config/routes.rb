@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get 'learn/bitcoin', to: 'learning_portal#bitcoin', as: :learn_bitcoin
   root to: 'pages#home', as: :home
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :users, only: [:create]
 end

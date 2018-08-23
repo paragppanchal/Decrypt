@@ -8,15 +8,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: transparent;
+  background-color: white;
   transition: 1.5s background-color ease;
+  border-bottom: 1px solid #dcdcdc;
 }
+
 .navbar-wagon-white {
   background-color: white;
 }
 /* Logo */
 .navbar-wagon-brand img {
-  height: 50px;
+  height: 39px;
 }
 
 /* User Avatar */
@@ -42,7 +44,7 @@
 /* Navbar link */
 .navbar-wagon-link {
   color: #616668;
-  font-size: 14px;
+  font-size: 21px;
 }
 .navbar-wagon-link:hover {
   color: #da552f;

@@ -44,4 +44,3 @@
   coin.name = "US Dollars"
   coin.currency_code = "USD"
   coin.save!
-
