@@ -1,11 +1,34 @@
-<h4>Show me the bitcoin buy price for</h4>
-<form class="form-inline" action="/buy/bitcoin">
-  <div class="form-group">
-    <div class="form-group">
-      <!-- <label for="amt">smth here</label> -->
-      <input type="text" class="form-control" id="amt" placeholder="enter amount in USD" name="amt">
+<div class="search-wrapper">
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#buy-price">Buy</a></li>
+    <li><a data-toggle="tab" href="#sell-price">Sell</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="buy-price" class="tab-pane fade in active">
+      <h4>Show me the bitcoin buy price for</h4>
+      <form class="form-inline" action="/buy/bitcoin">
+        <div class="form-group">
+          <div class="form-group">
+            <!-- <label for="amt">smth here</label> -->
+            <input type="text" class="form-control form-control--search" id="amt" placeholder="enter amount in USD" name="amt">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-default btn-search--submit">Compare</button>
+      </form>
+    </div>
+    <!-- sell form -->
+    <div id="sell-price" class="tab-pane fade">
+      <h4>Show me the bitcoin sell price for</h4>
+      <form class="form-inline" action="/buy/bitcoin">
+        <div class="form-group">
+          <div class="form-group">
+            <!-- <label for="amt">smth here</label> -->
+            <input type="text" class="form-control form-control--search" id="amt" placeholder="enter amount in USD" name="amt">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-default btn-search--submit">Compare</button>
+      </form>
     </div>
   </div>
-
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
+</div>
