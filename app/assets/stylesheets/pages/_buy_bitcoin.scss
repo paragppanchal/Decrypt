@@ -1,0 +1,74 @@
+.site-wrapper{
+  height: 100vh;
+  background-color: #f1f2f3;
+}
+#sidebar{
+  height: 100%;
+  border-right: 1px solid #dcdcdc;
+}
+#content{
+  height:100%;
+}
+// #content-results{
+//   border-bottom: 1px solid #dcdcdc;
+// }
+#comparison-section{
+  // background-color: #f1f2f3;
+  height:100%;
+}
+
+#comparison-table th{
+text-align: center;
+  // background-color: #dcdcdc;
+}
+.card{
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+}
+.text-center{
+  text-align: center;
+}
+
+// .comparison-table{
+//   &__header{
+//     display:flex;
+//     justify-content: space-between;
+//     &__column{
+//       width:25%;
+//       border: 1px solid #dcdcdc;
+//       display: flex;
+//       align-content: center;
+//       justify-content: center;
+//     }
+//   }
+
+//   &__row {
+//     display:flex;
+//     justify-content: space-between;
+//   }
+//   &__column {
+//     display: flex;
+//     align-content: center;
+//     justify-content: center;
+//     width:25%;
+//     border: 1px solid #dcdcdc;
+//     padding: 40px 0;
+//     &--emphasis{
+//       background-color:#f1f1f1;
+//     }
+//   }
+// }
+
+// .site-wrapper{
+//   display:flex;
+//   flex: 1;
+//   &__sidebar{
+//     width:20%
+//   }
+//   &__content{
+//     width:80%;
+//   }
+// }
