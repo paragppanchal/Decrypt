@@ -1,90 +1,73 @@
-require_relative '../exchange-api/hitbtc_exchange'
-require_relative '../exchange-api/cexio_exchange'
-require_relative '../exchange-api/coinbase_exchange'
-require_relative '../exchange-api/exmo_exchange'
-require_relative '../exchange-api/itbit_exchange'
-
 class FetchMarketSnapshotJob < ApplicationJob
   queue_as :default
 
   def perform(*args)
 
-     # ------------- CEXIO Exchange ----------------
-    cexio = CexioExchange.new('BTC', 'USD')
+    # fetch current buy & sell price of all the exchanges on the Exchanges table
+    all_exchanges = Exchange.all
+    all_exchanges.each do |exchange|
+      begin
+        update_market_snashot_record(exchange, 'BTC', 'USD')
+      # this will not raise any exception if exchange api call fails.
+      # it will log the excption though
+      rescue Exception => e
+        p e
+      end
+    end
+  end
 
-    cexio.fetch_buy_price!
-    cexio.fetch_sell_price!
+  private
+
+  def update_market_snashot_record(exchange, base_currency_code, quote_currency_code)
+
+    case exchange.name
+    when "cexio"
+      fetched_exchange = CexioExchange.new('BTC', 'USD')
+    when "coinbase"
+      fetched_exchange = CoinbaseExchange.new('BTC', 'USD')
+    when "exmo"
+      fetched_exchange = ExmoExchange.new('BTC', 'USD')
+    when "hitbtc"
+      fetched_exchange = HitbtcExchange.new('BTC', 'USD')
+    when "itbit"
+      fetched_exchange = ItbitExchange.new('BTC', 'USD')
+    else
+      puts 'exchange not found...'
+    end
+    #fetch current buy and sell price of the exchange
+    fetched_exchange.fetch_buy_price!
+    fetched_exchange.fetch_sell_price!
 
     # create exchange obj. instance
-
+    #exchange = Exchange.find_by(name: exchange.name)
     # create base_coin obj. instance
-
+    base_coin = Coin.find_by(currency_code: fetched_exchange.base_currency_code)
     # create quote_coin obj. instance
+    quote_coin = Coin.find_by(currency_code: fetched_exchange.quote_currency_code)
 
-
-
-
-    puts 'CEXIO Exchange'
-    puts 'base Currency Code: ' + cexio.base_currency_code
-    puts 'Currency Code: ' + cexio.quote_currency_code
-    puts "Buy price: #{cexio.buy_price}"
-    puts "Sell price: #{cexio.sell_price}"
+    #check if record already exists then update it or else create a new one.
+    if MarketSnapshot.where(exchange: exchange, base_coin: base_coin, quote_coin: quote_coin).exists?
+      # record already exists so update buy and sell prices
+      market_snapshot_record = MarketSnapshot.find_by(exchange: exchange, base_coin: base_coin, quote_coin: quote_coin)
+      market_snapshot_record.buy_price = fetched_exchange.buy_price
+      market_snapshot_record.sell_price = fetched_exchange.sell_price
+      market_snapshot_record.save!
+    else
+      # didn't find record so create new here
+      market_snapshot_record = MarketSnapshot.new
+      market_snapshot_record.exchange = exchange
+      market_snapshot_record.base_coin = base_coin
+      market_snapshot_record.quote_coin = quote_coin
+      market_snapshot_record.buy_price = fetched_exchange.buy_price
+      market_snapshot_record.sell_price = fetched_exchange.sell_price
+      market_snapshot_record.save!
+    end
+    puts  "#{exchange.name} Exchange"
+    puts 'base Currency Code: ' + fetched_exchange.base_currency_code
+    puts 'Currency Code: ' + fetched_exchange.quote_currency_code
+    puts "Buy price: #{fetched_exchange.buy_price}"
+    puts "Sell price: #{fetched_exchange.sell_price}"
     puts '-------------------------'
-
-    # -------------- Coinbase Exchange ----------------
-    cex = CoinbaseExchange.new('BTC', 'AUD')
-
-    cex.fetch_buy_price!
-    cex.fetch_sell_price!
-
-    puts 'Coinbase Exchange'
-    puts 'base Currency Code: ' + cex.base_currency_code
-    puts 'Currency Code: ' + cex.quote_currency_code
-    puts "Buy price: #{cex.buy_price}"
-    puts "Sell price: #{cex.sell_price}"
-    puts '-------------------------'
-
-    # ------------- Exmo Exchange ---------------------
-    exmo = ExmoExchange.new('BTC', 'USD')
-
-    exmo.fetch_buy_price!
-    exmo.fetch_sell_price!
-
-    puts 'Exmo Exchange'
-    puts 'base Currency Code: ' + exmo.base_currency_code
-    puts 'Currency Code: ' + exmo.quote_currency_code
-    puts "Buy price: #{exmo.buy_price}"
-    puts "Sell price: #{exmo.sell_price}"
-    puts '-------------------------'
-
-    # -------------- HitBTC Exchange -------------
-    hitbtc = HitbtcExchange.new('BTC', 'USD')
-    hitbtc.fetch_buy_price!
-    hitbtc.fetch_sell_price!
-
-    puts 'HitBTC Exchange'
-    puts 'base Currency Code: ' + hitbtc.base_currency_code
-    puts 'Currency Code: ' + hitbtc.quote_currency_code
-    puts "Buy price: #{hitbtc.buy_price}"
-    puts "Sell price: #{hitbtc.sell_price}"
-    puts '-------------------------'
-
-    # --------------- ItBit Exchange ------------------
-    # NOTE: tickerSymbol  -> always pass XBT for bitcoin. this exchange excepts XBT as
-    # bitcoin symbole and NOT BTC
-
-    itbit = ItbitExchange.new('XBT', 'USD')
-
-    itbit.fetch_buy_price!
-    itbit.fetch_sell_price!
-
-    puts 'ItBut Exchange'
-    puts 'base Currency Code: ' + itbit.base_currency_code
-    puts 'Currency Code: ' + itbit.quote_currency_code
-    puts "Buy price: #{itbit.buy_price}"
-    puts "Sell price: #{itbit.sell_price}"
-    puts '-------------------------'
-
   end
 end
 

@@ -15,7 +15,7 @@ class HitbtcExchange
 
   attr_accessor :base_currency_code, :quote_currency_code, :buy_price, :sell_price
 
-  def initialize(base_currency_code, quote_currency_code = 'AUD')
+  def initialize(base_currency_code, quote_currency_code = 'USD')
     @base_currency_code = base_currency_code
     @quote_currency_code = quote_currency_code
     @buy_price = nil
