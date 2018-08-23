@@ -6,11 +6,10 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-
+  <%= link_to 'Learning Portal', learn_path, class: "navbar-wagon-item navbar-wagon-link"  %>
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to 'Learning Portal', learn_path, class: "navbar-wagon-item navbar-wagon-link"  %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
