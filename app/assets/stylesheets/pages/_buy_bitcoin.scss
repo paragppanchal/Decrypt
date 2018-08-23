@@ -8,19 +8,29 @@
 }
 #content{
   height:100%;
+  background-color:white;
+  box-shadow: -4px 0 3px -2px rgba(0,0,0,.15);
 }
 
 #comparison-section{
-  // background-color: #f1f2f3;
   height:100%;
+  padding-left: 0;
+  padding-right:0;
 }
-
+.comparison-section-column{
+    padding-left: 0;
+  padding-right:0;
+}
 #comparison-table tbody th{
   text-align: center;
   padding: 80px 0;
+  border-left: 0;
 }
 #comparison-table > tbody > tr > td{
   vertical-align: middle;
+}
+.table__col--emphasis{
+
 }
 .card{
   background: white;
@@ -32,44 +42,3 @@
 .text-center{
   text-align: center;
 }
-
-// .comparison-table{
-//   &__header{
-//     display:flex;
-//     justify-content: space-between;
-//     &__column{
-//       width:25%;
-//       border: 1px solid #dcdcdc;
-//       display: flex;
-//       align-content: center;
-//       justify-content: center;
-//     }
-//   }
-
-//   &__row {
-//     display:flex;
-//     justify-content: space-between;
-//   }
-//   &__column {
-//     display: flex;
-//     align-content: center;
-//     justify-content: center;
-//     width:25%;
-//     border: 1px solid #dcdcdc;
-//     padding: 40px 0;
-//     &--emphasis{
-//       background-color:#f1f1f1;
-//     }
-//   }
-// }
-
-// .site-wrapper{
-//   display:flex;
-//   flex: 1;
-//   &__sidebar{
-//     width:20%
-//   }
-//   &__content{
-//     width:80%;
-//   }
-// }
