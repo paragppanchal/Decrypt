@@ -1,7 +1,17 @@
 <div class="site-wrapper">
   <div class="col-lg-3" id="sidebar">
     <h2>Sidebar</h2>
-    <button type="button" class="btn btn-primary">Price Alert</button>
+    <button id="myBtn">Price Alert</button>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>One <strong>Bitcoin</strong> will cost <strong>US $7,589.63</strong>. Subscribe to be notified of any changes in the price</p>
+          <label for="email"><b>Email address:</b></label>
+          <input type="text" placeholder="YourEmail@gmail.com" name="email" required>
+          <button type="submit" class="signupbtn">Subscribe</button>
+      </div>
+    </div>
+  </div>
   </div>
   <div class="col-lg-9" id="content">
     <div class="row" id="content-results">

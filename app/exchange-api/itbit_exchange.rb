@@ -14,7 +14,7 @@ class ItbitExchange
 
   attr_accessor :base_currency_code, :quote_currency_code, :buy_price, :sell_price
 
-  def initialize(base_currency_code, quote_currency_code = 'AUD')
+  def initialize(base_currency_code, quote_currency_code = 'USD')
     @base_currency_code = base_currency_code
     @quote_currency_code = quote_currency_code
     @buy_price = nil
@@ -47,8 +47,12 @@ class ItbitExchange
     #     "vwap24h": "6529.89765601",
     #     "serverTimeUTC": "2018-08-22T02:17:06.4244488Z"
     # }
-
-    url = "https://api.itbit.com/v1/markets/#{base_currency_code}#{quote_currency_code}/ticker"
+    if base_currency_code == 'BTC'
+      bcc = 'XBT'
+    else
+      bcc = base_currency_code
+    end
+    url = "https://api.itbit.com/v1/markets/#{bcc}#{quote_currency_code}/ticker"
     response = fetch_from_url(url)
     # TODO - Heandle exception of response here
 
@@ -58,7 +62,12 @@ class ItbitExchange
   end
 
   def fetch_sell_price!
-    url = "https://api.itbit.com/v1/markets/#{base_currency_code}#{quote_currency_code}/ticker"
+    if base_currency_code == 'BTC'
+      bcc = 'XBT'
+    else
+      bcc = base_currency_code
+    end
+    url = "https://api.itbit.com/v1/markets/#{bcc}#{quote_currency_code}/ticker"
     response = fetch_from_url(url)
     # TODO - Heandle exception of response here
 
