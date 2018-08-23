@@ -1,6 +1,57 @@
-<h1>buy bitcoin page</h1>
-<ul>
-  <li><%= link_to 'sell bitcoin', sell_bitcoin_path  %></li>
-<li><%= link_to 'learning portal', learn_path  %></li>
-<li><%= link_to 'home', home_path  %></li>
-</ul>
+<div class="site-wrapper">
+  <div class="col-lg-3" id="sidebar">
+    <h2>Sidebar</h2>
+    <button type="button" class="btn btn-primary">Price Alert</button>
+  </div>
+  <div class="col-lg-9" id="content">
+    <div class="row" id="content-results">
+      <div class="col-lg-12">
+        <h1>Your search for xxx USD to Bitcoin</h1>
+        <ul>
+          <li><%= link_to 'sell bitcoin', sell_bitcoin_path  %></li>
+          <li><%= link_to 'learning portal', learn_path  %></li>
+          <li><%= link_to 'home', home_path  %></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row" id="comparison-section">
+      <div class="col-lg-11 card">
+        <table class="table table-bordered text-center" id="comparison-table">
+          <thead>
+            <tr>
+              <th scope="col"><h3>Exchange</h3></th>
+              <th scope="col"><h3>Price</h3></th>
+              <th scope="col"><h3>Fee</h3></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td><p>$3000</p></td>
+              <td>1.6%</td>
+              <td>
+                <a href="https://www.google.com">
+                  <button type="button" class="btn btn-primary">Go to site</button>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>$3000</td>
+              <td>1.6%</td>
+              <td>
+                <a href="https://www.google.com">
+                  <button type="button" class="btn btn-primary">Go to site</button>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
