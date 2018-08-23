@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_22_011514) do
+ActiveRecord::Schema.define(version: 2018_08_22_070132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,17 +28,6 @@ ActiveRecord::Schema.define(version: 2018_08_22_011514) do
     t.string "currency_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "exchange_coins", force: :cascade do |t|
-    t.bigint "exchange_id"
-    t.bigint "coin_id"
-    t.integer "live_price"
-    t.datetime "last_updated"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["coin_id"], name: "index_exchange_coins_on_coin_id"
-    t.index ["exchange_id"], name: "index_exchange_coins_on_exchange_id"
   end
 
   create_table "exchanges", force: :cascade do |t|
@@ -68,6 +57,19 @@ ActiveRecord::Schema.define(version: 2018_08_22_011514) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "market_snapshots", force: :cascade do |t|
+    t.bigint "exchange_id"
+    t.bigint "base_coin_id"
+    t.datetime "last_updated"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "quote_coin_id"
+    t.float "buy_price"
+    t.float "sell_price"
+    t.index ["base_coin_id"], name: "index_market_snapshots_on_base_coin_id"
+    t.index ["exchange_id"], name: "index_market_snapshots_on_exchange_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.bigint "exchange_id"
     t.datetime "created_at", null: false
@@ -95,7 +97,7 @@ ActiveRecord::Schema.define(version: 2018_08_22_011514) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "exchange_coins", "coins"
-  add_foreign_key "exchange_coins", "exchanges"
+  add_foreign_key "market_snapshots", "coins", column: "base_coin_id"
+  add_foreign_key "market_snapshots", "exchanges"
   add_foreign_key "reviews", "exchanges"
 end

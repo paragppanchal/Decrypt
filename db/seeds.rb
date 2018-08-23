@@ -5,16 +5,42 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-puts "creating users"
-User.destroy_all
 
-user = User.new(email: 'loviyakane@poly-swarm.com', password: 'password')
-user.save!
+  puts 'Creating all the exchanges...'
 
-user_two = User.new(email: 'emaill@gmail.com', password: 'password')
-user_two.save!
+  MarketSnapshot.destroy_all
+  Coin.destroy_all
+  Exchange.destroy_all
 
-user_three = User.new(email: 'emailll@gmail.com', password: 'password')
-user_three.save!
+  exchange = Exchange.new
+  exchange.name = 'cexio'
+  exchange.save!
 
-puts "done"
+  exchange = Exchange.new
+  exchange.name = 'coinbase'
+  exchange.save!
+
+  exchange = Exchange.new
+  exchange.name = 'exmo'
+  exchange.save!
+
+  exchange = Exchange.new
+  exchange.name = 'hitbtc'
+  exchange.save!
+
+  exchange = Exchange.new
+  exchange.name = 'itbit'
+  exchange.save!
+
+
+  puts "Createing all the coins..."
+
+  coin = Coin.new
+  coin.name = "BitCoin"
+  coin.currency_code = "BTC"
+  coin.save!
+
+  coin = Coin.new
+  coin.name = "US Dollars"
+  coin.currency_code = "USD"
+  coin.save!
