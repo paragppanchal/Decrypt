@@ -9,17 +9,18 @@
 #content{
   height:100%;
 }
-// #content-results{
-//   border-bottom: 1px solid #dcdcdc;
-// }
+
 #comparison-section{
   // background-color: #f1f2f3;
   height:100%;
 }
 
-#comparison-table th{
-text-align: center;
-  // background-color: #dcdcdc;
+#comparison-table tbody th{
+  text-align: center;
+  padding: 80px 0;
+}
+#comparison-table > tbody > tr > td{
+  vertical-align: middle;
 }
 .card{
   background: white;
