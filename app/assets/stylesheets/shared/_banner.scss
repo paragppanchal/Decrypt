@@ -1,7 +1,6 @@
 #home-banner {
   background: linear-gradient(0deg,#113a82 0,#157af9 100%);
   height: 70vh;
-  // display:flex;
   display: flex;
   align-items: center;
 }
@@ -13,6 +12,7 @@
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
   color: white;
+  line-height: 70px;
 }
 .banner p {
   color: white;
