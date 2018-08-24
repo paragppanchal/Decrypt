@@ -29,7 +29,7 @@ class FetchMarketSnapshotJob < ApplicationJob
       fetched_exchange = ExmoExchange.new('BTC', 'USD')
     when "hitbtc"
       fetched_exchange = HitbtcExchange.new('BTC', 'USD')
-    when "itbit"
+    when "itbtc"
       fetched_exchange = ItbitExchange.new('BTC', 'USD')
     else
       puts 'exchange not found...'
