@@ -7,6 +7,14 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
   <%= link_to 'Learning Portal', learn_path, class: "navbar-wagon-item navbar-wagon-link"  %>
+  <% if params[:controller] =~ /buy/ %>
+    <%= link_to 'Sell Price', sell_bitcoin_path  %>
+  <% elsif params[:controller] =~ /sell/  %>
+    <%= link_to 'Buy Price', buy_bitcoin_path  %>
+  <% else %>
+    <%= link_to 'Buy Price', buy_bitcoin_path  %>
+    <%= link_to 'Sell Price', sell_bitcoin_path  %>
+  <% end %>
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
