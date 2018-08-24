@@ -6,17 +6,17 @@
       <div class="modal-content">
         <span class="close">&times;</span>
         <p>One <strong>Bitcoin</strong> will cost <strong>US $7,589.63</strong>. Subscribe to be notified of any changes in the price</p>
-          <label for="email"><b>Email address:</b></label>
-          <input type="text" placeholder="YourEmail@gmail.com" name="email" required>
-          <button type="submit" class="signupbtn">Subscribe</button>
+        <label for="email"><b>Email address:</b></label>
+        <input type="text" placeholder="YourEmail@gmail.com" name="email" required>
+        <button type="submit" class="signupbtn">Subscribe</button>
       </div>
     </div>
   </div>
-  </div>
+
   <div class="col-lg-9" id="content">
     <div class="row" id="content-results">
       <div class="col-lg-12">
-        <h1>Your search for xxx USD to Bitcoin</h1>
+        <h1>Your search for <%= params[:query] %> USD to Bitcoin</h1>
         <ul>
           <li><%= link_to 'sell bitcoin', sell_bitcoin_path  %></li>
           <li><%= link_to 'learning portal', learn_path  %></li>
@@ -36,30 +36,30 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td><p>$3000</p></td>
-              <td>1.6%</td>
-              <td>
-                <a href="https://www.google.com">
-                  <button type="button" class="btn btn-primary">Go to site</button>
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>$3000</td>
-              <td>1.6%</td>
-              <td>
-                <a href="https://www.google.com">
-                  <button type="button" class="btn btn-primary">Go to site</button>
-                </a>
-              </td>
-            </tr>
+            <% b = Exchange.all %>
+            <%  b.each do |exchange| %>
+              <tr>
+                <th scope="row"><%= exchange.name %></th>
+                <td>
+                  <ul>
+                    <li><%= exchange.market_snapshot.buy_price %></li>
+                  </ul>
+                </td>
+                <td></td>
+                <td>
+                  <a href="https://www.google.com">
+                    <button type="button" class="btn btn-primary">Go to site</button>
+                  </a>
+                </td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
       </div>
     </div>
   </div>
 </div>
+
+
+
 
