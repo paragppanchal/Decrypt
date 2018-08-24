@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2018_08_24_010300) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,20 +35,22 @@ ActiveRecord::Schema.define(version: 2018_08_24_010300) do
   create_table "exchanges", force: :cascade do |t|
     t.string "name"
     t.string "country"
-    t.integer "verification_time"
+    t.string "verification_time", null: false
     t.string "fee_description"
-    t.string "fee"
+    t.string "fees"
     t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.json "payout_methods"
-    t.json "paymnt_methods"
+    t.json "payment_methods"
     t.json "available_in_au"
     t.json "beginner_friendly"
     t.json "integrated_wallet"
     t.json "two_factor_auth"
     t.json "cold_storage"
     t.json "multisig_wallets"
+    t.string "ease_of_use", default: "", null: false
+    t.text "description"
   end
 
   create_table "learnings", force: :cascade do |t|
