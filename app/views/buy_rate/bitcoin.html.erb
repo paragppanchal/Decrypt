@@ -1,6 +1,5 @@
 <div class="site-wrapper">
   <div class="col-lg-3" id="sidebar">
-    <h2>Sidebar</h2>
     <button id="myBtn">Price Alert</button>
     <div id="myModal" class="modal">
       <div class="modal-content">
@@ -16,7 +15,7 @@
   <div class="col-lg-9" id="content">
     <div class="row" id="content-results">
       <div class="col-lg-12">
-        <h1>Your search for <%= params[:query] %> USD to Bitcoin</h1>
+        <h1>Buy <%= params[:query] %> USD in Bitcoin</h1>
       </div>
     </div>
     <div class="row" id="comparison-section">
@@ -34,10 +33,10 @@
             <% b = Exchange.all %>
             <%  b.each do |exchange| %>
               <tr>
-                <th scope="row"><%= image_tag("#{exchange.name}.png", :alt => "rss feed", class:'logo-size') %></th>
+                <th scope="row"><%= image_tag("#{exchange.name}.png", :alt => "#{exchange.name}", class:'logo-size') %></th>
                 <td>
                   <ul>
-                    <li><%= exchange.market_snapshot.buy_price %></li>
+                    <li><%= exchange.market_snapshot.buy_price.round(2) %></li>
                   </ul>
                 </td>
                 <td></td>
