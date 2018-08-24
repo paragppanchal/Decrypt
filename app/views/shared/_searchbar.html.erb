@@ -1,12 +1,36 @@
-<div id="searchbar">
-  <%= form_tag buy_bitcoin_path, method: :get do %>
-  <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "USD"%>
-    <button type="submit" class="btn btn-default btn-search--submit">
-      <i class="fas fa-search"></i>
-      Compare
-    </button>
-  <% end %>
-</div>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#buy_price">BUY BITCOIN</a></li>
+    <li><a data-toggle="tab" href="#sell_price">SELL BITCOIN</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="buy_price" class="tab-pane fade in active">
+      <div id="searchbar">
+        <%= form_tag buy_bitcoin_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Enter USD amount"%>
+        <button type="submit" class="btn btn-default btn-search--submit">
+          <i class="fas fa-search"></i>
+          Compare
+        </button>
+        <% end %>
+      </div>
+    </div>
+
+    <div id="sell_price" class="tab-pane fade">
+      <div id="searchbar">
+        <%= form_tag sell_bitcoin_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Enter bitcoin amount"%>
+        <button type="submit" class="btn btn-default btn-search--submit">
+          <i class="fas fa-search"></i>
+          Compare
+        </button>
+        <% end %>
+      </div>
+    </div>
+  </div>
