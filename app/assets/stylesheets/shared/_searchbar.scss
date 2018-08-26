@@ -1,12 +1,17 @@
+.searchbar-main{
+  justify-content:center;
+}
 .search-card{
   background: white;
-  margin-top: -125px;
+  margin-top: -90px;
   padding: 80px 0px;
   border-radius: 4px;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 160px;
+  width: 160px;
 
 }
 #searchbar form{
@@ -43,3 +48,14 @@
 .searchbar-main, .searchbar-main>.nav-tabs{
   display: flex;
 }
+.switch-ios.switch-toggle {
+  border-radius: 4px;
+  background-color: hsla(0,0%,100%,.5);
+}
+
+.nav-tabs > li > a{
+  padding: 17px 20px;
+  color: white;
+}
+
+

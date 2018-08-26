@@ -20,6 +20,7 @@ gem 'letter_opener', group: :development
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
+gem "bourbon"
 
 
 group :development do

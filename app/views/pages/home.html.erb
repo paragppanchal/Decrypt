@@ -1,26 +1,35 @@
 <section id="home-banner">
 
-  <div class="banner js-home-banner animated fadeInDownBig">
-    <h1 class='js-first'>
-      The easiest way to get into <span id="js-rotating">Cryptocurrency, Ethereum, Bitcoin, Litecoin, Ripple, Monero</span>
-    </h1>
-<!--
-    <h1 class='js-second'>
-      The fastest way to learn about the cryptocurrency industry
-    </h1>
-    <h1 class='js-third'>
-      Invest in cryptocurrency now!
-    </h1> -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="banner-content">
+          <div class="banner js-home-banner animated fadeInDownBig">
+            <h1 class='js-first'>
+              The easiest way to get into Cryptocurrency<!-- <span id="js-rotating">Cryptocurrency, Ethereum, Bitcoin, Litecoin, Ripple, Monero</span> -->
+            </h1>
+          </div>
+          <%= render 'shared/searchbar' %>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <section id="how-it-works">
-
-  <div class="col-lg-8 col-md-offset-2 search-card">
-    <%= render 'shared/searchbar' %>
-  </div>
-
-  <div class="col-lg-12">
-    <h2>Find the lowest entry prices on exchanges </h2>
+  <div class="container">
+    <div class="row home-exchanges">
+      <% b = Exchange.all %>
+      <%  b.each do |exchange| %>
+      <div class="col-lg-2 search-card">
+        <%= image_tag("#{exchange.name}.png", :alt => "#{exchange.name}", class:'home-logo-size logo-block') %>
+      </div>
+      <% end %>
+    </div>
   </div>
 </section>
+
+</section>
+
+

@@ -19,6 +19,12 @@
             <button type="submit" class="signupbtn">Subscribe</button>
           </div>
         </div>
+        <div>
+          <% 5.times do %>
+          <input type="radio" id="rating-1" name="drone" checked />
+          <label for="rating-1"><%= icon('star', 'Font Awesome', class: 'fa fa-star star-yellow') %></label>
+          <% end %>
+        </div>
       </div>
 
       <div class="col-lg-8" id="comparison-section">
@@ -28,33 +34,49 @@
           <p>sort by</p>
         </div>
         <ul class="comparison-results ">
-          <%  b.each do |exchange| %>
-          <li class="results-list card">
-            <div class="message-name">
-              <%= image_tag("#{exchange.name}.png", :alt => "#{exchange.name}", class:'logo-size logo-block') %>
-              <% exchange.rating.times do %>
-              <%= icon('star', 'Font Awesome', class: 'fa fa-star star-yellow') %>
-              <% end %>
-            </div>
+          <li class="best-cheapest-fastest card">
+            <!-- <div class="best-cheapest-fastest"> -->
+              <div class="best-cheapest-fastest-group">
+                <h3>Best</h3>
+                <p>lala</p>
+              </div>
+              <div class="best-cheapest-fastest-group">
+                <h3>Cheapest</h3>
+                <p>lala</p>
+              </div>
+              <div class="best-cheapest-fastest-group">
+                <h3>Fastest</h3>
+                <p>lala</p>
+              </div>
+              <!-- </div> -->
+            </li>
+            <%  b.each do |exchange| %>
+            <li class="results-list card">
+              <div class="message-name">
+                <%= image_tag("#{exchange.name}.png", :alt => "#{exchange.name}", class:'logo-size logo-block') %>
+                <% exchange.rating.times do %>
+                <%= icon('star', 'Font Awesome', class: 'fa fa-star star-yellow') %>
+                <% end %>
+              </div>
 
-            <div class="message-body">
-              <p><strong>
+              <div class="message-body">
+                <p><strong>
 
 
-              </strong></p>
+                </strong></p>
 
-            </div>
-            <div class="message-status">
-              <p class="price">$<%= exchange.market_snapshot.buy_price.round(2) %>0</p>
+              </div>
+              <div class="message-status">
+                <p class="price">$<%= exchange.market_snapshot.buy_price.round(2) %>0</p>
 
-              <a href="https://www.google.com">
-                <button type="button" class="btn btn-primary">Go to site</button>
-              </a>
-            </div>
-          </li>
-          <% end %>
-        </ul>
+                <a href="https://www.google.com">
+                  <button type="button" class="btn btn-primary">Go to site</button>
+                </a>
+              </div>
+            </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
 

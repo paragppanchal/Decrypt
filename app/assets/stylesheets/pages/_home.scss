@@ -1,11 +1,21 @@
 #how-it-works {
-  background-image: url('https://cryptogoal.io/img/pattern1.jpg');
+  // background-image: url('https://cryptogoal.io/img/pattern1.jpg');
   // background-color: #fed360;
-  background-size: 35%;
-  background-position: -40px -20px;
+  // background-size: 35%;
+  // background-position: -40px -20px;
   height: 70vh;
   text-align: center;
 }
 #why-compare > .col-lg-9 > .card{
   margin: 100px 20px;
+}
+.home-logo-size{
+  height:37px;
+}
+.home-exchanges{
+  display: flex;
+  justify-content:space-between;
+}
+.search-card:hover{
+  box-shadow: 0 0 15px 0 rgba(0,0,0,0.20);
 }
