@@ -1,55 +1,82 @@
-<div class="site-wrapper">
-  <div class="col-lg-3" id="sidebar">
-    <button id="myBtn">Price Alert</button>
-    <div id="myModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p>One <strong>Bitcoin</strong> will cost <strong>US $7,589.63</strong>. Subscribe to be notified of any changes in the price</p>
-        <label for="email"><b>Email address:</b></label>
-        <input type="text" placeholder="YourEmail@gmail.com" name="email" required>
-        <button type="submit" class="signupbtn">Subscribe</button>
-      </div>
+  <div id="content-results">
+    <div class="col-lg-4 col-lg-offset-2">
+      <h1>Buy <%= params[:query] %> USD in Bitcoin</h1>
+      <%= render 'shared/searchbar' %>
     </div>
   </div>
 
-  <div class="col-lg-9" id="content">
-    <div class="row" id="content-results">
-      <div class="col-lg-12">
-        <h1>Buy <%= params[:query] %> USD in Bitcoin</h1>
+  <div class="container site-wrapper">
+    <div class="row" id="content">
+      <div class="col-lg-3" id="sidebar">
+        <h5>Filter</h5>
+        <button id="myBtn">Price Alert</button>
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>One <strong>Bitcoin</strong> will cost <strong>US $7,589.63</strong>. Subscribe to be notified of any changes in the price</p>
+            <label for="email"><b>Email address:</b></label>
+            <input type="text" placeholder="YourEmail@gmail.com" name="email" required>
+            <button type="submit" class="signupbtn">Subscribe</button>
+          </div>
+        </div>
+        <div>
+          <% 5.times do %>
+          <input type="radio" id="rating-1" name="drone" checked />
+          <label for="rating-1"><%= icon('star', 'Font Awesome', class: 'fa fa-star star-yellow') %></label>
+          <% end %>
+        </div>
       </div>
-    </div>
-    <div class="row" id="comparison-section">
-      <div class="col-lg-12 comparison-section-column">
-        <table class="table table-bordered text-center" id="comparison-table">
-          <thead>
-            <tr>
-              <th scope="col"><h3>Exchange</h3></th>
-              <th scope="col table__col--emphasis"><h3>Price</h3></th>
-              <th scope="col"><h3>Fee</h3></th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% b = Exchange.all %>
+
+      <div class="col-lg-8" id="comparison-section">
+        <% b = Exchange.all %>
+        <div class="results-sort">
+          <p><%= b.count %> results sorted by Best</p>
+          <p>sort by</p>
+        </div>
+        <ul class="comparison-results ">
+          <li class="best-cheapest-fastest card">
+            <!-- <div class="best-cheapest-fastest"> -->
+              <div class="best-cheapest-fastest-group">
+                <h3>Best</h3>
+                <p>lala</p>
+              </div>
+              <div class="best-cheapest-fastest-group">
+                <h3>Cheapest</h3>
+                <p>lala</p>
+              </div>
+              <div class="best-cheapest-fastest-group">
+                <h3>Fastest</h3>
+                <p>lala</p>
+              </div>
+              <!-- </div> -->
+            </li>
             <%  b.each do |exchange| %>
-              <tr>
-                <th scope="row"><%= image_tag("#{exchange.name}.png", :alt => "#{exchange.name}", class:'logo-size') %></th>
-                <td>
-                  <ul>
-                    <li><%= exchange.market_snapshot.buy_price.round(2) %></li>
-                  </ul>
-                </td>
-                <td></td>
-                <td>
-                  <a href="https://www.google.com">
-                    <button type="button" class="btn btn-primary">Go to site</button>
-                  </a>
-                </td>
-              </tr>
+            <li class="results-list card">
+              <div class="message-name">
+                <%= image_tag("#{exchange.name}.png", :alt => "#{exchange.name}", class:'logo-size logo-block') %>
+                <% exchange.rating.times do %>
+                <%= icon('star', 'Font Awesome', class: 'fa fa-star star-yellow') %>
+                <% end %>
+              </div>
+
+              <div class="message-body">
+                <p><strong>
+
+
+                </strong></p>
+
+              </div>
+              <div class="message-status">
+                <p class="price">$<%= exchange.market_snapshot.buy_price.round(2) %>0</p>
+
+                <a href="https://www.google.com">
+                  <button type="button" class="btn btn-primary">Go to site</button>
+                </a>
+              </div>
+            </li>
             <% end %>
-          </tbody>
-        </table>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+
