@@ -12,12 +12,12 @@
 
     <div class="row">
       <div class="col">
-        <div class="row gutter-1">
+        <div class="row gutter-1 search-justify-center">
           <div class="form-group col-md-5">
             <%= form_tag buy_bitcoin_path, method: :get do %>
             <%= text_field_tag :query, params[:query], class: "form-control-lg form-control", placeholder: "Enter USD amount"%>
           </div>
-          <div class="form-group col-md-5">
+          <div class="form-group col-md-3">
 
 
             <select class="form-control form-control-lg" id="exampleFormControlSelect1" tabindex="-1" style="">
@@ -331,4 +331,8 @@
 </section>
 <!-- / blog -->
 
-
+<style>
+  .search-justify-center{
+    justify-content: center;
+  }
+</style>

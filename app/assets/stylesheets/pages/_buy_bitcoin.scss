@@ -174,3 +174,16 @@ width:100%;
   right: 10px;
   top: 10px;
 }
+.refine-results{
+  margin-top: 20px;
+}
+.refine-results ul{
+padding-left:0;
+}
+.refine-results ul > li{
+list-style: none;
+display: flex;
+}
+.refine-results ul > li > p{
+  margin-left: 5px;
+  }
