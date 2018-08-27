@@ -162,12 +162,15 @@ width:100%;
 .exchange-ratings{
   margin: 10px 0;
 }
+.exchange-modal-content{
+  position:relative;
+}
 .close-modal{
   cursor: pointer;
   color: #aaa;
   font-size: 40px;
   font-weight: bold;
-  position: fixed;
-  top: 203px;
-  right: 309px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }

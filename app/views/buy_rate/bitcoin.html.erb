@@ -1,4 +1,4 @@
-  <section class="hero hero-with-header">
+  <section class="hero hero-with-header hero-compare-page">
     <div class="container">
       <div class="row">
         <div class="col-md-10">
@@ -9,6 +9,11 @@
     </div>
   </section>
 
+<style>
+  .hero-compare-page{
+    padding-bottom: 0!important;
+  }
+</style>
   <!--  wave -->
   <section class="section-decorated-bottom pt-0">
     <div class="decorated-bottom text-light">
@@ -40,7 +45,8 @@
               <div class="row" id="content">
                 <div class="col-lg-3" id="sidebar">
                   <h5>Filter</h5>
-                  <button id="myBtn" class="btn btn-primary btn-rounded">Price Alert</button>
+                  <!-- price-alert-modal -->
+                  <button id="myBtn" class="btn btn-primary btn-block"">Price Alert</button>
                   <div id="myModal" class="modal">
                     <div class="email-modal-content">
                       <span class="close">&times;</span>
@@ -50,19 +56,23 @@
                       <button type="submit" class="signupbtn btn btn-sm btn-rounded btn-outline-primary mt-2">Subscribe</button>
                     </div>
                   </div>
-                  <div>
-                    <% 5.times do %>
-                    <input type="radio" id="rating-1" name="drone" checked />
-                    <label for="rating-1"><%= icon('star', 'Font Awesome', class: 'fa fa-star star-yellow') %></label>
-                    <% end %>
+                  <!-- /price-alert-modal -->
+
+                  <div class="refine-results">
+
+                    <h6><b>Payment Methods</b></h6>
+                    <h6><b>Country</b></h6>
+                    <h6><b>Features</b></h6>
+                    <h6><b>Security</b></h6>
                   </div>
+
                 </div>
 
                 <div class="col-9" id="comparison-section">
                   <% b = Exchange.all %>
                   <div class="results-sort">
                     <p><%= b.count %> results sorted by Best</p>
-                    <p>sort by</p>
+                    <p>Sort By</p>
                   </div>
                   <ul class="comparison-results ">
                     <%  b.each do |exchange| %>
@@ -94,9 +104,22 @@
                     </div>
                     <div class="exchange-modal js-exchange-modal">
                       <div class="exchange-modal-content">
-                        <p>loreum ipsum</p>
-                        <span class="js-exchange-modal-click close-modal">x
-                        </span>
+                        <div class="col-12">
+                          <h3><%= exchange.name.capitalize %></h3>
+                          <%= image_tag("#{exchange.name}.png", :alt => "#{exchange.name}", class:'logo-size logo-block') %>
+                          <h4><%= exchange.country %></h4>
+                          <h4><%= exchange.verification_time %></h4>
+                          <h4><%= exchange.fee_description %></h4>
+                          <h4><%= exchange.fees %></h4>
+                          <h4><%= exchange.rating %></h4>
+                          <% payouts = exchange.payout_methods %>
+                          <% payouts.each do |payout| %>
+                          <h4><%= payout %></h4>
+                          <% end %>
+                        </div>
+
+                        <div class="js-exchange-modal-click close-modal">x
+                        </div>
                       </div>
                     </div>
                     </li>
