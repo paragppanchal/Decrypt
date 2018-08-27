@@ -8,31 +8,84 @@
     <div id="buy_price" class="tab-pane fade in active">
       <div id="searchbar">
         <%= form_tag buy_bitcoin_path, method: :get do %>
-        <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-          placeholder: "Enter USD amount"%>
-          <button type="submit" class="btn btn-default btn-search--submit">
-            <i class="fas fa-search"></i>
-            Compare
-          </button>
-          <% end %>
-        </div>
-      </div>
-
-      <div id="sell_price" class="tab-pane fade">
-        <div id="searchbar">
-          <%= form_tag sell_bitcoin_path, method: :get do %>
-          <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-            placeholder: "Enter bitcoin amount"%>
+          <%= text_field_tag :amount, params[:amount], class: "form-control", placeholder: "Enter USD amount"%>
             <button type="submit" class="btn btn-default btn-search--submit">
               <i class="fas fa-search"></i>
               Compare
             </button>
-            <% end %>
-          </div>
-        </div>
+            <ul>
+              <!-- PAYMENT METHODS FILTER SELECTION -->
+              <li>
+                <%= check_box_tag 'payment_methods[]', 'SWIFT Bank Transfer', true  %>
+                <p>SWIFT Bank Transfer</p>
+              </li>
+              <li>
+                <%= check_box_tag 'payment_methods[]', 'SEPA Bank Transfer', true  %>
+                <p>SEPA Bank Transfer</p>
+              </li>
+              <li>
+                <%= check_box_tag 'payment_methods[]', 'VISA', true  %>
+                <p>VISA</p>
+              </li>
+              <li>
+                <%= check_box_tag 'payment_methods[]', 'Mastercard', true  %>
+                <p>Mastercard</p>
+              </li>
+              <li>
+                <%= check_box_tag 'payment_methods[]', 'Paypal', true  %>
+                <p>Paypal</p>
+              </li>
+              <li>
+                <%= check_box_tag 'payment_methods[]', 'Sofort', true  %>
+                <p>Sofort</p>
+              </li>
+              <li>
+                <%= check_box_tag 'payment_methods[]', 'Giropay', true  %>
+                <p>Giropay</p>
+              </li>
+              <li>
+                <%= check_box_tag 'payment_methods[]', 'Skrill', true  %>
+                <p>Skrill</p>
+              </li>
+              <li>
+                <%= check_box_tag 'payment_methods[]', 'iDeal', true  %>
+                <p>iDeal</p>
+              </li>
+              <li>
+                <%= check_box_tag 'payment_methods[]', 'Bancontact / Mister', true  %>
+                <p>Bancontact / Mister</p>
+              </li>
+
+              <!-- FEATURES FILTER SELECTION -->
+              <li>
+                <%= check_box_tag 'features[]', 'Beginner Friendly', false  %>
+                <p>Beginner Friendly</p>
+              </li>
+              <li>
+                <%= check_box_tag 'features[]', 'Instant Verification', false  %>
+                <p>Instant Verification</p>
+              </li>
+              <li>
+                <%= check_box_tag 'features[]', 'Integrated Wallet', false  %>
+                <p>Integrated Wallet</p>
+              </li>
+            </ul>
+        <% end %>
       </div>
     </div>
+
+      <div id="sell_price" class="tab-pane fade">
+        <div id="searchbar">
+          <%= form_tag sell_bitcoin_path, method: :get do %>
+            <%= text_field_tag :amount, params[:amount], class: "form-control", placeholder: "Enter bitcoin amount"%>
+              <button type="submit" class="btn btn-default btn-search--submit">
+                <i class="fas fa-search"></i>
+                Compare
+              </button>
+          <% end %>
+        </div>
+      </div>
+  </div>
+</div>
+
+

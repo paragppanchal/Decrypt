@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   get 'exchanges/show'
   get 'buy/bitcoin', to: 'buy_rate#bitcoin', as: :buy_bitcoin
   get 'sell/bitcoin', to: 'sell_rate#bitcoin', as: :sell_bitcoin
+
+  # get 'buy/:coin', to: "buy_rate#buy", as: :buy_coin
+
   get 'learn', to: 'learning_portal#bitcoin', as: :learn
+
   get 'learn/bitcoin', to: 'learning_portal#bitcoin', as: :learn_bitcoin
   get 'learn/bitcoin/:id', to: 'learning_portal#show', as: :learn_bitcoin_show
   get 'learn/introduction-to-cryptocurrency', to: 'learning_portal#introduction', as: :learn_intro
