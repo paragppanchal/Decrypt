@@ -6,7 +6,7 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-  <%= link_to 'Learning Portal', learn_path, class: "navbar-wagon-item navbar-wagon-link"  %>
+  <%= link_to 'Learning Portal', learn_bitcoin_path, class: "navbar-wagon-item navbar-wagon-link"  %>
   <% if params[:controller] =~ /buy/ %>
     <%= link_to 'Sell Price', sell_bitcoin_path  %>
   <% elsif params[:controller] =~ /sell/  %>
