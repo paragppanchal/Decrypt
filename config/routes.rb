@@ -7,11 +7,11 @@ Rails.application.routes.draw do
   get 'learn', to: 'learning_portal#bitcoin', as: :learn
   get 'learn/bitcoin', to: 'learning_portal#bitcoin', as: :learn_bitcoin
   get 'learn/bitcoin/:id', to: 'learning_portal#show', as: :learn_bitcoin_show
-  get 'learn/introduction-to-cryptocurrency', to: 'learning_portal#introduction'
-  get 'learn/cryptocurrency-origin', to: 'learning_portal#origin'
-  get 'learn/cryptocurrency-pros-cons', to: 'learning_portal#proscons'
-  get 'learn/cryptocurrency-types', to: 'learning_portal#types'
-  get 'learn/cryptocurrency-risks-dangers', to: 'learning_portal#risks-dangers'
+  get 'learn/introduction-to-cryptocurrency', to: 'learning_portal#introduction', as: :learn_intro
+  get 'learn/cryptocurrency-origin', to: 'learning_portal#origin', as: :learn_origin
+  get 'learn/cryptocurrency-pros-cons', to: 'learning_portal#proscons', as: :learn_proscons
+  get 'learn/cryptocurrency-types', to: 'learning_portal#types', as: :learn_type
+  get 'learn/cryptocurrency-risks-dangers', to: 'learning_portal#risks-dangers', as: :learn_risk
 
 
   root to: 'pages#home', as: :home

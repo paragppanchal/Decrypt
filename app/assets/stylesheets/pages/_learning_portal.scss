@@ -90,3 +90,8 @@
   -o-transform: translateY(-50%);
   transform: translateY(-50%)
 }
+
+.test {
+  display: flex;
+  align-items: space-between;
+}

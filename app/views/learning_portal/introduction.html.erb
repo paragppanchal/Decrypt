@@ -1,34 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-  <title>Learn cryptocurrency | Decrypt</title>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="referrer" content="origin-when-cross-origin">
-
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,600" rel="stylesheet">
-  <link rel="stylesheet" href="https://d32exi8v9av3ux.cloudfront.net/web/2018/08/22/dd1dcfb/bootstrap/bootstrap.min.css">
-  <link rel="stylesheet" href="https://d32exi8v9av3ux.cloudfront.net/web/2018/08/22/dd1dcfb/website/website.min.css">
-
-</head>
-
-
-<body id="o-wrapper" class="o-wrapper ">
-</nav>
-<div id="sidenav-mask" class="sidenav-mask"></div>
-
-
-<header class="ln-hero-mini">
-</header>
-<div class="container-fluid learn-detail">
+<div class="learn-detail">
   <div class="row">
-    <div class="learn-wrapper col-md-8 col-md-push-4" data-currency="XBT">
-      <div class="learn-content">
-        <h1>Introduction to cryptocurrency</h1>
+
+    <div class="learn-sidebar col-md-4 col-sm-12 col-xs-12">
+      <div>
+
+        <div id="tab-0" class="tab-content current">
+          <ul>
+
+            <li>
+              <a class="sidebar-item" href="/learn/introduction-to-cryptocurrency">
+                <div class="number"><span></span></div>
+                <div class="sidebar-holder">
+                  <div class="article-img">
+                    <%= image_tag("bitcoin-logo.jpeg") %>
+                  </div>
+                  <div class="sidebar-content">
+                    <h5>Introduction to cryptocurrency</h5>
+                  </div>
+                </div>
+              </a>
+            </li>
+
+            <li>
+              <a class="sidebar-item" href="/learn/cryptocurrency-origin">
+                <div class="number"><span></span></div>
+                <div class="sidebar-holder">
+                  <div class="article-img">
+                    <%= image_tag("ethereum.png") %>
+                  </div>
+                  <div class="sidebar-content">
+                    <h5>Origins of cryptocurrency</h5>
+                  </div>
+                </div>
+              </a>
+            </li>
+
+            <li>
+              <a class="sidebar-item" href="/learn/cryptocurrency-pros-cons">
+                <div class="number"><span></span></div>
+                <div class="sidebar-holder">
+                  <div class="article-img">
+                    <%= image_tag("ripple.jpeg") %>
+                  </div>
+                  <div class="sidebar-content">
+                    <h5>Cryptocurrency pros & cons</h5>
+                  </div>
+                </div>
+              </a>
+            </li>
+
+            <li>
+              <a class="sidebar-item" href="/learn/cryptocurrency-types">
+                <div class="number"><span></span></div>
+                <div class="sidebar-holder">
+                  <div class="article-img">
+                    <%= image_tag("litecoin.png") %>
+                  </div>
+                  <div class="sidebar-content">
+                    <h5>Types of cryptocurrency</h5>
+                  </div>
+                </div>
+              </a>
+            </li>
+
+            <li>
+              <a class="sidebar-item" href="/learn/cryptocurrency-risks-dangers">
+                <div class="number"><span></span></div>
+                <div class="sidebar-holder">
+                  <div class="article-img">
+                    <%= image_tag("monero.png") %>
+                  </div>
+                  <div class="sidebar-content">
+                    <h5>Risks and dangers of cryptocurrency</h5>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="crypto-learn-wrapper col-md-8 col-md-push-4">
+
+      <h1>Introduction to cryptocurrency</h1>
 
         <%= image_tag("what-is-crypto.png") %>
+        <br>
+        <br>
 
         <p style="font-size: 55px line-height: px">
           Cryptocurrencies, like Bitcoin, aren't actual physical coins, but they've become a financial phenomenon in their own right. Here is your comprehensive guide for understanding cryptocurrency.
@@ -47,117 +106,17 @@
         <p>
           Cryptocurrencies use cryptographic protocols, or extremely complex code systems that encrypt sensitive data transfers, to secure their units of exchange. Cryptocurrency developers build these protocols on advanced mathematics and computer engineering principles that render them virtually impossible to break, and thus to duplicate or counterfeit the protected currencies. These protocols also mask the identities of cryptocurrency users, making transactions and fund flows difficult to attribute to specific individuals or groups.
         </p>
-        <%= link_to "Go back to learning portal", learn_bitcoin_path %>
+        <br>
+        <br>
+        <br>
+        <%= link_to "Previous: Learning portal home", learn_bitcoin_path, class: "btn btn-light" %>
+        <%= link_to "Learning portal home", learn_bitcoin_path, class: "btn btn-info" %>
+        <%= link_to "Next: Origins of cryptocurrency", learn_origin_path, class: "btn btn-light" %>
+        <br>
         <br>
       </div>
 
     </div>
-    <nav class="learn-sidebar col-md-4 col-md-pull-8 col-sm-12 col-xs-12">
-      <div>
-
-        <div id="tab-0" class="tab-content current">
-          <ul>
-
-            <li>
-              <a class="sidebar-item" href="/learn/introduction-to-cryptocurrency">
-                <div class="number"><span></span></div>
-                <div class="sidebar-holder">
-                  <div class="article-img">
-                    <%= image_tag("bitcoin-logo.jpeg") %>
-                  </div>
-                  <div class="sidebar-content">
-                    <h3>Introduction to cryptocurrency</h3>
-                  </div>
-                </div>
-              </a>
-            </li>
-
-            <li>
-              <a class="sidebar-item" href="/learn/cryptocurrency-origin">
-                <div class="number"><span></span></div>
-                <div class="sidebar-holder">
-                  <div class="article-img">
-                    <%= image_tag("ethereum.png") %>
-                  </div>
-                  <div class="sidebar-content">
-                    <h3>Origins of cryptocurrency</h3>
-                  </div>
-                </div>
-              </a>
-            </li>
-
-            <li>
-              <a class="sidebar-item" href="/learn/cryptocurrency-pros-cons">
-                <div class="number"><span></span></div>
-                <div class="sidebar-holder">
-                  <div class="article-img">
-                    <%= image_tag("ripple.jpeg") %>
-                  </div>
-                  <div class="sidebar-content">
-                    <h3>Cryptocurrency pros & cons</h3>
-                  </div>
-                </div>
-              </a>
-            </li>
-
-            <li>
-              <a class="sidebar-item" href="/learn/cryptocurrency-types">
-                <div class="number"><span></span></div>
-                <div class="sidebar-holder">
-                  <div class="article-img">
-                    <%= image_tag("litecoin.png") %>
-                  </div>
-                  <div class="sidebar-content">
-                    <h3>Types of cryptocurrency</h3>
-                  </div>
-                </div>
-              </a>
-            </li>
-
-            <li>
-              <a class="sidebar-item" href="/learn/cryptocurrency-risks-dangers">
-                <div class="number"><span></span></div>
-                <div class="sidebar-holder">
-                  <div class="article-img">
-                    <%= image_tag("monero.png") %>
-                  </div>
-                  <div class="sidebar-content">
-                    <h3>Risks and dangers of cryptocurrency</h3>
-                  </div>
-                </div>
-              </a>
-            </li>
-
-          </ul>
-        </div>
-      </div>
-    </nav>
   </div>
 </div>
-
-
-  <div class="box">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <br>
-          <br>
-          <h2 class="text-center footer-text" style="font-size: 70px"><em>Decrypt</em></h2>
-          <br>
-          <h3 class="text-center footer-text">A game changer in the cryptocurrency industry</h3>
-          <br>
-          <h4 class="text-center footer-text">Cryptocurrency made easy. dam this looks bad ill have to get joy to do this one</h4>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-</body>
-</html>
-
-
-
-
-
 

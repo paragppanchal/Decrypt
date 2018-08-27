@@ -15,7 +15,7 @@
                     <%= image_tag("bitcoin-logo.jpeg") %>
                   </div>
                   <div class="sidebar-content">
-                    <h3>Introduction to cryptocurrency</h3>
+                    <h5>Introduction to cryptocurrency</h5>
                   </div>
                 </div>
               </a>
@@ -29,7 +29,7 @@
                     <%= image_tag("ethereum.png") %>
                   </div>
                   <div class="sidebar-content">
-                    <h3>Origins of cryptocurrency</h3>
+                    <h5>Origins of cryptocurrency</h5>
                   </div>
                 </div>
               </a>
@@ -43,7 +43,7 @@
                     <%= image_tag("ripple.jpeg") %>
                   </div>
                   <div class="sidebar-content">
-                    <h3>Cryptocurrency pros & cons</h3>
+                    <h5>Cryptocurrency pros & cons</h5>
                   </div>
                 </div>
               </a>
@@ -57,7 +57,7 @@
                     <%= image_tag("litecoin.png") %>
                   </div>
                   <div class="sidebar-content">
-                    <h3>Types of cryptocurrency</h3>
+                    <h5>Types of cryptocurrency</h5>
                   </div>
                 </div>
               </a>
@@ -71,7 +71,7 @@
                     <%= image_tag("monero.png") %>
                   </div>
                   <div class="sidebar-content">
-                    <h3>Risks and dangers of cryptocurrency</h3>
+                    <h5>Risks and dangers of cryptocurrency</h5>
                   </div>
                 </div>
               </a>
@@ -86,7 +86,8 @@
       <h1>Welcome to the exciting world of cryptocurrency</h1>
 
       <div class="crypto-learn-content">
-        <%= image_tag("crypto-welcome.jpeg") %>
+        <div style="text-align:center"><%= image_tag("crypto-welcome.jpeg") %></div>
+        <br>
 
         <p style="font-size: 25px line-height: px">
           It is hard to find people who have never heard of cryptocurrency before, thanks to its rapid growth. Cryptocurrency is only a term used to describe the different types of currencies inside the cryptocurrency market. The most common currency is <strong><em>Bitcoin</em></strong>, followed be other strong-performing currencies such as <strong><em>Ethereum</em></strong>, <strong><em>Litecoin</em></strong>, and many, many more
@@ -99,6 +100,8 @@
         <p>
           Be sure to read everything carefully as the cryptocurrency market, while exciting, is rather volatile at the moment. You need to make sure you educate yourself enough before delving deeper.
         </p>
+          <%= link_to "Learning portal home", learn_bitcoin_path, class: "btn btn-info" %>
+          <%= link_to "Next: Introduction to cryptocurrency", learn_intro_path, class: "btn btn-light" %>
       </div>
 
     </div>
