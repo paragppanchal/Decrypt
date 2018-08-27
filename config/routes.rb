@@ -4,10 +4,20 @@ Rails.application.routes.draw do
   get 'exchanges/show'
   get 'buy/bitcoin', to: 'buy_rate#bitcoin', as: :buy_bitcoin
   get 'sell/bitcoin', to: 'sell_rate#bitcoin', as: :sell_bitcoin
+
   # get 'buy/:coin', to: "buy_rate#buy", as: :buy_coin
 
-  get 'learn', to: 'learning_portal#home', as: :learn
+  get 'learn', to: 'learning_portal#bitcoin', as: :learn
+
   get 'learn/bitcoin', to: 'learning_portal#bitcoin', as: :learn_bitcoin
+  get 'learn/bitcoin/:id', to: 'learning_portal#show', as: :learn_bitcoin_show
+  get 'learn/introduction-to-cryptocurrency', to: 'learning_portal#introduction', as: :learn_intro
+  get 'learn/cryptocurrency-origin', to: 'learning_portal#origin', as: :learn_origin
+  get 'learn/cryptocurrency-pros-cons', to: 'learning_portal#proscons', as: :learn_proscons
+  get 'learn/cryptocurrency-types', to: 'learning_portal#types', as: :learn_type
+  get 'learn/cryptocurrency-risks-dangers', to: 'learning_portal#risks-dangers', as: :learn_risk
+
+
   root to: 'pages#home', as: :home
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users, only: [:create]

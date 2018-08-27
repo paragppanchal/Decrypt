@@ -21,3 +21,14 @@ if (window) {
       }
   }
 }
+
+// compare-modal
+$('.js-results-list').each (function(){
+  const button = $('.js-exchange-modal-click', this);
+  const modal = $('.js-exchange-modal', this);
+  button.on('click', function(){
+    modal.toggleClass('exchange-modal-active');
+  })
+
+})
+

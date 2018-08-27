@@ -1,82 +1,113 @@
-  <div id="content-results">
-    <div class="col-lg-4 col-lg-offset-2">
-      <h1>Buy <%= params[:query] %> USD in Bitcoin</h1>
-      <%= render 'shared/searchbar' %>
+  <section class="hero hero-with-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10">
+          <!-- <span class="eyebrow mb-1 text-primary">Ready to start ?</span> -->
+          <h1 class="display-2">The best price for <b>$<%= params[:query] %></b> is <b>exchange</b> </h1>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="container site-wrapper">
-    <div class="row" id="content">
-      <div class="col-lg-3" id="sidebar">
-        <h5>Filter</h5>
-        <button id="myBtn">Price Alert</button>
-        <div id="myModal" class="modal">
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>One <strong>Bitcoin</strong> will cost <strong>US $7,589.63</strong>. Subscribe to be notified of any changes in the price</p>
-            <label for="email"><b>Email address:</b></label>
-            <input type="text" placeholder="YourEmail@gmail.com" name="email" required>
-            <button type="submit" class="signupbtn">Subscribe</button>
+  <!--  wave -->
+  <section class="section-decorated-bottom pt-0">
+    <div class="decorated-bottom text-light">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 40"  preserveAspectRatio="none">
+        <path d="">
+          <animate
+          attributeName="d"
+          begin="0s"
+          dur="5s"
+          repeatCount="indefinite"
+          values="
+          M0,0 C200,7.11236625e-15 200,40 400,40 C600,40 800,0 1000,0 L1000,50 L0,50 L0,0 Z;
+          M0,40 C200,40 400,0 600,0 C800,0 800,40 1000,40 L1000,50 L0,50 L0,40 Z;
+          M0,30 C200,30 200,0 400,0 C600,0 800,40 1000,40 L1000,50 L0,50 L0,30 Z;
+          M0,0 C200,7.11236625e-15 200,40 400,40 C600,40 800,0 1000,0 L1000,50 L0,50 L0,0 Z;"></animate>
+        </path>
+      </svg>
+    </div>
+  </section>
+  <!-- / wave -->
+
+  <!-- about -->
+  <section class="bg-light pb-0">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          <div class="row separator-bottom pb-5 mb-5">
+            <div class="container site-wrapper">
+              <div class="row" id="content">
+                <div class="col-lg-3" id="sidebar">
+                  <h5>Filter</h5>
+                  <button id="myBtn" class="btn btn-primary btn-rounded">Price Alert</button>
+                  <div id="myModal" class="modal">
+                    <div class="email-modal-content">
+                      <span class="close">&times;</span>
+                      <p>One <strong>Bitcoin</strong> will cost <strong>US $7,589.63</strong>. Subscribe to be notified of any changes in the price</p>
+                      <label for="email"><b>Email address:</b></label>
+                      <input type="text" placeholder="YourEmail@gmail.com" name="email" required>
+                      <button type="submit" class="signupbtn btn btn-sm btn-rounded btn-outline-primary mt-2">Subscribe</button>
+                    </div>
+                  </div>
+                  <div>
+                    <% 5.times do %>
+                    <input type="radio" id="rating-1" name="drone" checked />
+                    <label for="rating-1"><%= icon('star', 'Font Awesome', class: 'fa fa-star star-yellow') %></label>
+                    <% end %>
+                  </div>
+                </div>
+
+                <div class="col-9" id="comparison-section">
+                  <% b = Exchange.all %>
+                  <div class="results-sort">
+                    <p><%= b.count %> results sorted by Best</p>
+                    <p>sort by</p>
+                  </div>
+                  <ul class="comparison-results ">
+                    <%  b.each do |exchange| %>
+
+                    <li class="results-list card js-results-list">
+                      <div class="exchange-table-row">
+                        <div class="message-name">
+                          <%= image_tag("#{exchange.name}.png", :alt => "#{exchange.name}", class:'logo-size logo-block') %>
+                         <div class="exchange-ratings">
+                          <% exchange.rating.times do %>
+                          <%= icon('star', 'Font Awesome', class: 'fa fa-star star-yellow') %>
+                          <% end %>
+                        </div>
+                        <div class="more-info js-exchange-modal-click">
+                        <h7>Read More</h7>
+                      </div>
+                      </div>
+
+
+                      <div class="message-status">
+                        <p>$<%= exchange.market_snapshot.buy_price.round(2) %>0</p>
+                      </div>
+
+                      <div class="action-button">
+                        <a href="https://www.google.com">
+                          <button type="button" class="btn btn-primary">Go to site</button>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="exchange-modal js-exchange-modal">
+                      <div class="exchange-modal-content">
+                        <p>loreum ipsum</p>
+                        <span class="js-exchange-modal-click close-modal">x
+                        </span>
+                      </div>
+                    </div>
+                    </li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div>
-          <% 5.times do %>
-          <input type="radio" id="rating-1" name="drone" checked />
-          <label for="rating-1"><%= icon('star', 'Font Awesome', class: 'fa fa-star star-yellow') %></label>
-          <% end %>
-        </div>
-      </div>
-
-      <div class="col-lg-8" id="comparison-section">
-        <% b = Exchange.all %>
-        <div class="results-sort">
-          <p><%= b.count %> results sorted by Best</p>
-          <p>sort by</p>
-        </div>
-        <ul class="comparison-results ">
-          <li class="best-cheapest-fastest card">
-            <!-- <div class="best-cheapest-fastest"> -->
-              <div class="best-cheapest-fastest-group">
-                <h3>Best</h3>
-                <p>lala</p>
-              </div>
-              <div class="best-cheapest-fastest-group">
-                <h3>Cheapest</h3>
-                <p>lala</p>
-              </div>
-              <div class="best-cheapest-fastest-group">
-                <h3>Fastest</h3>
-                <p>lala</p>
-              </div>
-              <!-- </div> -->
-            </li>
-            <%  b.each do |exchange| %>
-            <li class="results-list card">
-              <div class="message-name">
-                <%= image_tag("#{exchange.name}.png", :alt => "#{exchange.name}", class:'logo-size logo-block') %>
-                <% exchange.rating.times do %>
-                <%= icon('star', 'Font Awesome', class: 'fa fa-star star-yellow') %>
-                <% end %>
-              </div>
-
-              <div class="message-body">
-                <p><strong>
-
-
-                </strong></p>
-
-              </div>
-              <div class="message-status">
-                <p class="price">$<%= exchange.market_snapshot.buy_price.round(2) %>0</p>
-
-                <a href="https://www.google.com">
-                  <button type="button" class="btn btn-primary">Go to site</button>
-                </a>
-              </div>
-            </li>
-            <% end %>
-          </ul>
-        </div>
       </div>
     </div>
-
+  </section>
+  <!-- / about -->

@@ -83,25 +83,35 @@
 
     <div class="crypto-learn-wrapper col-md-8 col-md-push-4">
 
-      <h1>Welcome to the exciting world of cryptocurrency</h1>
+      <h1>Origins of cryptocurrency</h1>
 
-      <div class="crypto-learn-content">
-        <div style="text-align:center"><%= image_tag("crypto-welcome.jpeg") %></div>
+        <%= image_tag("crypto-history") %>
+        <br>
         <br>
 
         <p style="font-size: 25px line-height: px">
-          It is hard to find people who have never heard of cryptocurrency before, thanks to its rapid growth. Cryptocurrency is only a term used to describe the different types of currencies inside the cryptocurrency market. The most common currency is <strong><em>Bitcoin</em></strong>, followed be other strong-performing currencies such as <strong><em>Ethereum</em></strong>, <strong><em>Litecoin</em></strong>, and many, many more
+          Cryptocurrency’s technical foundations date back to the early 1980s, when an American cryptographer named David Chaum invented a “blinding” algorithm that remains central to modern web-based encryption. The algorithm allowed for secure, unalterable information exchanges between parties, laying the groundwork for future electronic currency transfers. This was known as “blinded money.”
         </p>
         <br>
         <p>
-          Here in our library, you will find all the tools you need to educate yourself in order to be a promising investor in the cryptocurrency market. The topics range from the history and the types of cryptocurrency to the risks and dangers of it.
+          By the late 1980s, Chaum enlisted a handful of other cryptocurrency enthusiasts in an attempt to commercialize the concept of blinded money. After relocating to the Netherlands, he founded DigiCash, a for-profit company that produced units of currency based on the blinding algorithm. Unlike Bitcoin and most other modern cryptocurrenncies, DigiCash’s control wasn’t decentralized. Chaum’s company had a monopoly on supply control, similar to central banks’ monopoly on fiat currencies
         </p>
         <br>
         <p>
-          Be sure to read everything carefully as the cryptocurrency market, while exciting, is rather volatile at the moment. You need to make sure you educate yourself enough before delving deeper.
+          Around the same time, an accomplished software engineer named Wei Dai published a white paper on b-money, a virtual currency architecture that included many of the basic components of modern cryptocurrencies, such as complex anonymity protections and decentralization. However, b-money was never deployed as a means of exchange.
         </p>
-          <%= link_to "Learning portal home", learn_bitcoin_path, class: "btn btn-info" %>
-          <%= link_to "Next: Introduction to cryptocurrency", learn_intro_path, class: "btn btn-light" %>
+        <br>
+        <p>
+          Shortly thereafter, a Chaum associate named Nick Szabo developed and released a cryptocurrency called Bit Gold, which was notable for using the blockchain system that underpins most modern cryptocurrencies. Like DigiCash, Bit Gold never gained popular traction and is no longer used as a means of exchange.
+        </p>
+        <br>
+        <br>
+        <br>
+        <%= link_to "Previous: Introduction to cryptocurrency", learn_intro_path, class: "btn btn-light" %>
+        <%= link_to "Learning portal home", learn_bitcoin_path, class: "btn btn-info" %>
+        <%= link_to "Next: Cryptocurrency pros & cons", learn_proscons_path, class: "btn btn-light" %>
+        <br>
+        <br>
       </div>
 
     </div>
