@@ -1,66 +1,99 @@
-<div class="navbar-wagon">
-  <!-- Logo -->
-  <%= link_to home_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "decrypt.png", class: "navbar-logo" %>
-  <% end %>
 
-  <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
-  <%= link_to 'Learning Portal', learn_path, class: "navbar-wagon-item navbar-wagon-link"  %>
-  <% if params[:controller] =~ /buy/ %>
-    <%= link_to 'Sell Price', sell_bitcoin_path  %>
-  <% elsif params[:controller] =~ /sell/  %>
-    <%= link_to 'Buy Price', buy_bitcoin_path  %>
-  <% else %>
-    <%= link_to 'Buy Price', buy_bitcoin_path  %>
-    <%= link_to 'Sell Price', sell_bitcoin_path  %>
-  <% end %>
-  <form id="demo-2">
-  <input type="search" placeholder="Search">
-</form>
-    <% if user_signed_in? %>
 
-      <!-- Links when logged in -->
+<!-- header -->
+<header class="header-sticky header-light">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="<%= home_path %>">
+        <%= image_tag "decrypt.png", class: "navbar-logo navbar-logo-dark" %>
+        <!-- <img class="navbar-logo navbar-logo-light" src="../../assets/images/demo/logo/logo-light.svg" alt="Logo"> -->
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="burger"><span></span></span></button>
 
-      <!-- Avatar with dropdown menu -->
-      <div class="navbar-wagon-item">
-        <div class="dropdown">
-          <%= image_tag "http://kitt.lewagon.com/placeholder/users/random", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-              <% end %>
-            </li>
-          </ul>
-        </div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav align-items-center mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../../index.html" role="button">
+              Home
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Compare
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <!-- <a class="dropdown-item" href="../../landing-pages.html"> -->
+                <div class="dropdown-item">
+                  <span><%= link_to 'Bitcoin Prices', buy_bitcoin_path %></span>
+                </div>
+                <!-- <p>Something here</p> -->
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="../../inner-pages.html">
+                <span>Ethereum Prices</span>
+                <!-- <p>Something here</p> -->
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="../../app-pages.html">
+                <span>Litecoin Prices</span>
+                <!-- <p>Something here</p> -->
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown dropdown-mega">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Learning Portal
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown-1">
+              <div class="row">
+                <div class="col">
+                  <ul class="mega-list">
+                    <!-- <li>link_to 'Get Started', learn_path, class:'highlight'</li> -->
+                    <h4>Bitcoin</h4>
+                    <li><%= link_to 'What is Bitcoin?', learn_path %></li>
+                    <li><%= link_to 'Where did Bitcoin come from?', learn_path %></li>
+                    <li><%= link_to 'How do I get Bitcoin?', learn_path %></li>
+                    <li><%= link_to 'Is Bitcoin safe?', learn_path %></li>
+                  </ul>
+                </div>
+                <div class="col">
+                  <ul class="mega-list">
+                    <h4>Ethereum</h4>
+                    <li><%= link_to 'What is Ethereum?', learn_path %></li>
+                    <li><%= link_to 'Where did Ethereum come from?', learn_path %></li>
+                    <li><%= link_to 'How do I get Ethereum?', learn_path %></li>
+                    <li><%= link_to 'Is Ethereum safe?', learn_path %></li>
+                  </ul>
+                </div>
+                <div class="col">
+                  <ul class="mega-list">
+                    <h4>Litecoin</h4>
+                    <li><%= link_to 'What is Litecoin?', learn_path %></li>
+                    <li><%= link_to 'Where did Litecoin come from?', learn_path %></li>
+                    <li><%= link_to 'How do I get Litecoin?', learn_path %></li>
+                    <li><%= link_to 'Is Litecoin safe?', learn_path %></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav align-items-center mr-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Michael Doe
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="">Profile</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="">Sign In</a>
+              <a class="dropdown-item" href="">Sign Out</a>
+            </div>
+          </li>
+        </ul>
       </div>
-    <% else %>
-      <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <% end %>
+    </nav>
   </div>
-
-  <!-- Dropdown list appearing on mobile only -->
-  <div class="navbar-wagon-item hidden-md hidden-lg">
-    <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-
+</header>
+<!-- header -->
