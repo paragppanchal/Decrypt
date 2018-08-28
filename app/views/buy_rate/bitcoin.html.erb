@@ -1,39 +1,9 @@
-
-Skip to content
-
-    Pull requests
-    Issues
-    Marketplace
-    Explore
-
-    @allthatjoy
-
-1
-2
-
-    0
-
-allthatjoy/Decrypt
-Code
-Issues 0
-Pull requests 0
-Projects 0
-Wiki
-Insights
-Settings
-Decrypt/app/views/buy_rate/bitcoin.html.erb
-24945db 2 hours ago
-@allthatjoy allthatjoy worked on refine
-@allthatjoy
-@5ecured
-
-206 lines (193 sloc) 8.37 KB
   <section class="hero hero-with-header hero-compare-page">
     <div class="container">
       <div class="row">
         <div class="col-md-10">
           <!-- <span class="eyebrow mb-1 text-primary">Ready to start ?</span> -->
-          <h1 class="display-2">The best price for <b>$<%= params[:query] %></b> is <b>exchange</b> </h1>
+          <h1 class="display-2">The best price for <b>$<%= params[:amount] %></b> is <b>exchange</b> </h1>
         </div>
       </div>
     </div>
@@ -74,23 +44,25 @@ Decrypt/app/views/buy_rate/bitcoin.html.erb
           <div class="container site-wrapper">
             <div class="row" id="content">
               <div class="col-lg-3" id="sidebar">
-                <!-- price-alert-modal -->
-                <button id="myBtn" class="btn btn-primary btn-block"">Price Alert</button>
-                <div id="myModal" class="modal">
-                  <div class="email-modal-content">
-                    <span class="close">&times;</span>
-                    <p>One <strong>Bitcoin</strong> will cost <strong>US $7,589.63</strong>. Subscribe to be notified of any changes in the price</p>
-                    <label for="email"><b>Email address:</b></label>
-                    <input type="text" placeholder="YourEmail@gmail.com" name="email" required>
-                    <button type="submit" class="signupbtn btn btn-sm btn-rounded btn-outline-primary mt-2">Subscribe</button>
-                  </div>
-                </div>
-                <!-- /price-alert-modal -->
 
+                <!-- form -->
+
+                <!-- /form -->
+
+                <!-- refine results -->
                 <div class="refine-results">
 
-                  <h6><b>Payment Methods</b></h6>
+                  <%= form_tag buy_bitcoin_path, method: :get do %>
+                  <%= text_field_tag :amount, params[:amount], class: "form-control", placeholder: "Enter USD amount", type:'number'%>
+
+                  <button type="submit" class="btn btn-default btn-search--submit">
+
+                    <i class="fas fa-search"></i>
+                    Compare
+                  </button>
                   <ul>
+                    <!-- PAYMENT METHODS FILTER SELECTION -->
+                    <h6><b>Payment Methods</b></h6>
                     <li>
                       <%= check_box_tag 'payment_methods[]', 'SWIFT Bank Transfer', true  %>
                       <p>SWIFT Bank Transfer</p>
@@ -100,11 +72,11 @@ Decrypt/app/views/buy_rate/bitcoin.html.erb
                       <p>SEPA Bank Transfer</p>
                     </li>
                     <li>
-                      <%= check_box_tag 'payment_methods[]', 'VISA', true  %>
+                      <%= check_box_tag 'payment_methods[]', 'VISA', params[:payment_methods].include?('VISA')  %>
                       <p>VISA</p>
                     </li>
                     <li>
-                      <%= check_box_tag 'payment_methods[]', 'Mastercard', true  %>
+                      <%= check_box_tag 'payment_methods[]', 'Mastercard', params[:payment_methods].include?('Mastercard')  %>
                       <p>Mastercard</p>
                     </li>
                     <li>
@@ -131,107 +103,127 @@ Decrypt/app/views/buy_rate/bitcoin.html.erb
                       <%= check_box_tag 'payment_methods[]', 'Bancontact / Mister', true  %>
                       <p>Bancontact / Mister</p>
                     </li>
-                  </ul>
-                  <h6><b>Features</b></h6>
-                  <ul>
+
+                    <!-- FEATURES FILTER SELECTION -->
+                    <h6><b>Features</b></h6>
                     <li>
-                      <%= check_box_tag 'features[]', 'Beginner Friendly', true  %>
+                      <%= check_box_tag 'features[]', 'Beginner Friendly', params[:features].include?('Beginner Friendly')  %>
                       <p>Beginner Friendly</p>
                     </li>
                     <li>
-                      <%= check_box_tag 'features[]', 'Instant Verification', true  %>
+                      <%= check_box_tag 'features[]', 'Instant Verification', params[:features].include?('Instant Verification')  %>
                       <p>Instant Verification</p>
                     </li>
                     <li>
-                      <%= check_box_tag 'features[]', 'Integrated Wallet', true  %>
+                      <%= check_box_tag 'features[]', 'Integrated Wallet', params[:features].include?('Integrated Wallet')  %>
                       <p>Integrated Wallet</p>
                     </li>
-                  </ul>
-                  <h6><b>Security</b></h6>
-                  <ul>
+
+                    <!-- SECURITY FILTER SELECTION -->
+                    <h6><b>Security</b></h6>
                     <li>
-                      <%= check_box_tag 'security[]', 'Two-factor Authentication', true  %>
+                      <%= check_box_tag 'security[]', 'Two-factor Authentication', params[:security].include?('Two-factor Authentication')  %>
                       <p>Two-factor Authentication</p>
                     </li>
                     <li>
-                      <%= check_box_tag 'security[]', 'Cold Storage', true  %>
+                      <%= check_box_tag 'security[]', 'Cold Storage', params[:security].include?('Cold Storage')  %>
                       <p>Cold Storage</p>
                     </li>
                     <li>
-                      <%= check_box_tag 'security[]', 'Multisig Wallets', true  %>
+                      <%= check_box_tag 'security[]', 'Multisig Wallets', params[:security].include?('Multisig Wallets')  %>
                       <p>Multisig Wallets</p>
                     </li>
                   </ul>
-                </div>
-              </div>
 
+                  <% end %>
 
-
-                <div class="col-9" id="comparison-section">
-                  <% b = Exchange.all %>
-                  <div class="results-sort">
-                    <p><%= b.count %> results sorted by Best</p>
-                    <p>Sort By</p>
+                </div><!-- /refine results -->
+                <!-- price-alert-modal -->
+                <button id="myBtn" class="btn btn-primary btn-block"">Price Alert</button>
+                <div id="myModal" class="modal">
+                  <div class="email-modal-content">
+                    <span class="close">&times;</span>
+                    <p>One <strong>Bitcoin</strong> will cost <strong>US $7,589.63</strong>. Subscribe to be notified of any changes in the price</p>
+                    <label for="email"><b>Email address:</b></label>
+                    <input type="text" placeholder="YourEmail@gmail.com" name="email" required>
+                    <button type="submit" class="signupbtn btn btn-sm btn-rounded btn-outline-primary mt-2">Subscribe</button>
                   </div>
-                  <ul class="comparison-results ">
-                    <%  b.each do |exchange| %>
+                </div>
+                <!-- /price-alert-modal -->
+              </div> <!-- /sidebar -->
 
-                    <li class="results-list card js-results-list">
-                      <div class="exchange-table-row">
-                        <div class="message-name">
-                          <%= image_tag("#{exchange.name}.png", :alt => "#{exchange.name}", class:'logo-size logo-block') %>
-                          <div class="exchange-ratings">
-                            <% exchange.rating.times do %>
-                            <%= icon('star', 'Font Awesome', class: 'fa fa-star star-yellow') %>
-                            <% end %>
-                          </div>
-                          <div class="more-info js-exchange-modal-click">
-                            <h7>Read More</h7>
-                          </div>
+
+
+              <div class="col-9" id="comparison-section">
+                <% b = @filtered_exchanges %>
+                <div class="results-sort">
+                  <p><%= b.count %> results sorted by Best</p>
+                  <p>Sort By</p>
+                </div>
+                <ul class="comparison-results ">
+
+                  <%  b.each do |eh| %>
+
+                  <li class="results-list card js-results-list">
+                    <div class="exchange-table-row">
+                      <div class="message-name">
+
+                        <%= image_tag("#{eh[:exchange].name}.png", :alt => "#{eh[:exchange].name}", class:'logo-size logo-block') %>
+                        <div class="exchange-ratings">
+
+                          <% eh[:exchange].rating.times do %>
+                          <%= icon('star', 'Font Awesome', class: 'fa fa-star star-yellow') %>
+
+                          <% end %>
                         </div>
+                        <div class="more-info js-exchange-modal-click">
+                          <h7>Read More</h7>
+                        </div>
+                      </div>
 
 
-                        <div class="message-status">
-                          <% if false %>
-                          <p>$<%= exchange.market_snapshot.buy_price.round(2) %>0</p>
+                      <div class="message-status">
+                        <h5>$<%= params[:amount] %> will get you</h5>
+                        <h5><b><i class="fab fa-btc"></i><%= eh[:bitcoin].round(4) %> BTC</b></h5>
+                      </div>
+
+                      <div class="action-button">
+                        <p><i class="fab fa-btc"></i> 1 = $<%= eh[:market_snapshot].buy_price.round(2) %></p>
+                        <a href= <%= eh[:exchange].url %> target="_blank" >
+                          <button type="button" class="btn btn-primary">Go to site</button>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="exchange-modal js-exchange-modal">
+                      <div class="exchange-modal-content">
+                        <div class="col-12">
+                          <h3><%= eh[:exchange].name.capitalize %></h3>
+                          <%= image_tag("#{eh[:exchange].name}.png", :alt => "#{eh[:exchange].name}", class:'logo-size logo-block') %>
+                          <h4><%= eh[:exchange].country %></h4>
+                          <h4><%= eh[:exchange].verification_time %></h4>
+                          <h4><%= eh[:exchange].fee_description %></h4>
+                          <h4><%= eh[:exchange].fees %></h4>
+                          <h4><%= eh[:exchange].rating %></h4>
+                          <% payouts = eh[:exchange].payout_methods %>
+                          <% payouts.each do |payout| %>
+                          <h4><%= payout %></h4>
                           <% end %>
                         </div>
 
-                        <div class="action-button">
-                          <a href= <%= exchange.url %> target="_blank" >
-                            <button type="button" class="btn btn-primary">Go to site</button>
-                          </a>
+                        <div class="js-exchange-modal-click close-modal">x
                         </div>
                       </div>
-                      <div class="exchange-modal js-exchange-modal">
-                        <div class="exchange-modal-content">
-                          <div class="col-12">
-                            <h3><%= exchange.name.capitalize %></h3>
-                            <%= image_tag("#{exchange.name}.png", :alt => "#{exchange.name}", class:'logo-size logo-block') %>
-                            <h4><%= exchange.country %></h4>
-                            <h4><%= exchange.verification_time %></h4>
-                            <h4><%= exchange.fee_description %></h4>
-                            <h4><%= exchange.fees %></h4>
-                            <h4><%= exchange.rating %></h4>
-                            <% payouts = exchange.payout_methods %>
-                            <% payouts.each do |payout| %>
-                            <h4><%= payout %></h4>
-                            <% end %>
-                          </div>
-
-                          <div class="js-exchange-modal-click close-modal">x
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                    <% end %>
-                  </ul>
-                </div>
+                    </div>
+                  </li>
+                  <% end %>
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  <!-- / about -->
+  </div>
+</section>
+<!-- / about -->
+
