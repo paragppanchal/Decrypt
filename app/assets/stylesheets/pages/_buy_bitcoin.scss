@@ -144,7 +144,7 @@ width:100%;
 }
 .exchange-modal-content{
   background-color:white;
-  width:60%;
+  // width:60%;
   padding:30px;
   border-radius: 5px;
 }
@@ -164,6 +164,11 @@ width:100%;
 }
 .exchange-modal-content{
   position:relative;
+}
+.exchange-modal-content-wrapper{
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 .close-modal{
   cursor: pointer;
@@ -187,3 +192,4 @@ display: flex;
 .refine-results ul > li > p{
   margin-left: 5px;
   }
+
