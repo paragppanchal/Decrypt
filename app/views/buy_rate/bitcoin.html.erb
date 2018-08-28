@@ -137,69 +137,85 @@
 
 
 
-                <div class="col-9" id="comparison-section">
-                  <% b = Exchange.all %>
-                  <div class="results-sort">
-                    <p><%= b.count %> results sorted by Best</p>
-                    <p>Sort By</p>
-                  </div>
-                  <ul class="comparison-results ">
-                    <%  b.each do |exchange| %>
+              <div class="col-9" id="comparison-section">
+                <% b = Exchange.all %>
+                <div class="results-sort">
+                  <p><%= b.count %> results sorted by Best</p>
+                  <p>Sort By</p>
+                </div>
+                <ul class="comparison-results ">
+                  <%  b.each do |exchange| %>
 
-                    <li class="results-list card js-results-list">
-                      <div class="exchange-table-row">
-                        <div class="message-name">
-                          <%= image_tag("#{exchange.name}.png", :alt => "#{exchange.name}", class:'logo-size logo-block') %>
-                          <div class="exchange-ratings">
-                            <% exchange.rating.times do %>
-                            <%= icon('star', 'Font Awesome', class: 'fa fa-star star-yellow') %>
-                            <% end %>
-                          </div>
-                          <div class="more-info js-exchange-modal-click">
-                            <h7>Read More</h7>
-                          </div>
+                  <li class="results-list card js-results-list">
+                    <div class="exchange-table-row">
+                      <div class="message-name">
+                        <%= image_tag("#{exchange.name}.png", :alt => "#{exchange.name}", class:'logo-size logo-block') %>
+                        <div class="exchange-ratings">
+                          <% exchange.rating.times do %>
+                          <%= icon('star', 'Font Awesome', class: 'fa fa-star star-yellow') %>
+                          <% end %>
                         </div>
-
-
-                        <div class="message-status">
-                          <p>$<%= exchange.market_snapshot.buy_price.round(2) %>0</p>
-                        </div>
-
-                        <div class="action-button">
-                          <a href="https://www.google.com">
-                            <button type="button" class="btn btn-primary">Go to site</button>
-                          </a>
+                        <div class="more-info js-exchange-modal-click">
+                          <h7>Read More</h7>
                         </div>
                       </div>
-                      <div class="exchange-modal js-exchange-modal">
-                        <div class="exchange-modal-content">
-                          <div class="col-12">
-                            <h3><%= exchange.name.capitalize %></h3>
-                            <%= image_tag("#{exchange.name}.png", :alt => "#{exchange.name}", class:'logo-size logo-block') %>
-                            <h4><%= exchange.country %></h4>
-                            <h4><%= exchange.verification_time %></h4>
-                            <h4><%= exchange.fee_description %></h4>
-                            <h4><%= exchange.fees %></h4>
-                            <h4><%= exchange.rating %></h4>
-                            <% payouts = exchange.payout_methods %>
-                            <% payouts.each do |payout| %>
-                            <h4><%= payout %></h4>
-                            <% end %>
-                          </div>
+
+
+                      <div class="message-status">
+                        <p>$<%= exchange.market_snapshot.buy_price.round(2) %>0</p>
+                      </div>
+
+                      <div class="action-button">
+                        <a href="https://www.google.com">
+                          <button type="button" class="btn btn-primary">Go to site</button>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="exchange-modal js-exchange-modal">
+                      <div class="exchange-modal-content-wrapper">
+                        <div class="exchange-modal-content col-md-4">
+                          <h3><%= exchange.name.capitalize %></h3>
+                          <%= image_tag("#{exchange.name}.png", :alt => "#{exchange.name}", class:'logo-size logo-block') %>
+                          <h4><%= exchange.country %></h4>
+                          <h4><%= exchange.verification_time %></h4>
+                          <h4><%= exchange.fee_description %></h4>
+                          <h4><%= exchange.fees %></h4>
+                          <h4><%= exchange.rating %></h4>
+                          <% payouts = exchange.payout_methods %>
+                          <% payouts.each do |payout| %>
+                          <h4><%= payout %></h4>
+                          <% end %>
 
                           <div class="js-exchange-modal-click close-modal">x
                           </div>
                         </div>
+                        <div class="col-md-8">
+                          <div class="row">
+                            <div class="col-md-6 exchange-modal-content">
+                              <h2>somestuff</h2>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6 exchange-modal-content">
+                              <h2>somestuff</h2>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                    </li>
-                    <% end %>
-                  </ul>
-                </div>
+                    </div>
+
+                  </li>
+                  <% end %>
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  <!-- / about -->
+  </div>
+</section>
+<!-- / about -->
+
+
