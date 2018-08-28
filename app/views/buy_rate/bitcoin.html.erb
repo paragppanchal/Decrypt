@@ -160,15 +160,17 @@
                         </div>
                       </div>
 
+                        <div class="message-status">
+                          <% if false %>
+                          <p>$<%= exchange.market_snapshot.buy_price.round(2) %></p>
+                          <% end %>
+                        </div>
 
-                      <div class="message-status">
-                        <p>$<%= exchange.market_snapshot.buy_price.round(2) %>0</p>
-                      </div>
-
-                      <div class="action-button">
-                        <a href="https://www.google.com">
-                          <button type="button" class="btn btn-primary">Go to site</button>
-                        </a>
+                        <div class="action-button">
+                          <a href= <%= exchange.url %> target="_blank" >
+                            <button type="button" class="btn btn-primary">Go to site</button>
+                          </a>
+                        </div>
                       </div>
                     </div>
 
