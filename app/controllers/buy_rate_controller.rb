@@ -28,6 +28,10 @@ class BuyRateController < ApplicationController
                                             features: features_filter,
                                             security: security_filter
                                           )
+
+    params[:payment_methods] ||= ["Mastercard", "VISA"]
+    params[:features] ||= []
+    params[:security] ||= []
   end
 
   # private
@@ -70,7 +74,7 @@ class BuyRateController < ApplicationController
     # output: return true if the any of the element in the payment_methods_filter array
     # is available in the exchange payment methods array.
     if payment_methods_filter.nil?
-      return false
+      return true
     end
     # if any of the payment method is supported by the exchange then
     # include that exchange.
