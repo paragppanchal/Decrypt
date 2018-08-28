@@ -184,10 +184,10 @@
 
                       <div class="message-status">
                         <% if params[:amount].empty? %>
-                          <h5><b><i class="fab fa-btc"></i> 1 = USD <%= eh[:market_snapshot].buy_price.round(2) %></b></h5>
+                        <h5><b><i class="fab fa-btc"></i> 1 = USD <%= eh[:market_snapshot].buy_price.round(2) %></b></h5>
                         <% else %>
-                          <h5>$<%= params[:amount] %> will get you</h5>
-                          <h5><b><i class="fab fa-btc"></i><%= eh[:bitcoin].round(4) %> </b></h5>
+                        <h5>$<%= params[:amount] %> will get you</h5>
+                        <h5><b><i class="fab fa-btc"></i><%= eh[:bitcoin].round(4) %> </b></h5>
                         <% end %>
                       </div>
 
@@ -200,20 +200,46 @@
                     </div>
                     <div class="exchange-modal js-exchange-modal">
                       <div class="exchange-modal-content">
-                        <div class="col-12">
-                          <h3><%= eh[:exchange].name.capitalize %></h3>
-                          <%= image_tag("#{eh[:exchange].name}.png", :alt => "#{eh[:exchange].name}", class:'logo-size logo-block') %>
-                          <h4><%= eh[:exchange].country %></h4>
-                          <h4><%= eh[:exchange].verification_time %></h4>
-                          <h4><%= eh[:exchange].fee_description %></h4>
-                          <h4><%= eh[:exchange].fees %></h4>
-                          <h4><%= eh[:exchange].rating %></h4>
-                          <% payouts = eh[:exchange].payout_methods %>
-                          <% payouts.each do |payout| %>
-                          <h4><%= payout %></h4>
-                          <% end %>
-                        </div>
+                        <div class="exchange-modal-flex">
+                          <div class="exchange-modal-column">
+                            <div class="exchange-modal-card rowspan">
+                              <div class="modal-main">
+                                <h4><b><%= eh[:exchange].name.capitalize %></b></h4>
+                                <%= image_tag("#{eh[:exchange].name}.png", :alt => "#{eh[:exchange].name}", class:' logo-block, logo-size') %>
+                                <h6><b>Country:</b> <%= eh[:exchange].country %></h6>
 
+                                <h6><b>Verification Time:</b> <%= eh[:exchange].verification_time %></h6></h6>
+                                <h6><b>Fee</b> <%= eh[:exchange].fees %></h6></h6>
+                                <h6><b>Fee Description</b> <%= eh[:exchange].fee_description %></h6></h6>
+
+                                <div class="modal-main-footer">
+                                  <%= link_to 'Read Review', learn_path, class:"btn btn-sm btn-primary btn-rounded mt-2" %>
+                                  <%= link_to 'Compare', buy_bitcoin_path, class:"btn btn-sm btn-rounded btn-outline-primary mt-2" %>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="exchange-modal-column">
+                            <div class="exchange-modal-card exchange-modal-column-sm">
+                              <div class="modal-score">
+                                <h6><b>EXCHANGE SCORE</b></h6>
+                                <h4><%= eh[:exchange].rating %></h4>
+                                <% eh[:exchange].rating.times do %>
+                                <%= icon('star', 'Font Awesome', class: 'fa fa-star star-yellow') %>
+                                <% end %>
+
+                              </div>
+                            </div>
+
+                            <div class="exchange-modal-card exchange-modal-column-sm">
+                              <div class="modal-tips">
+                                <%= image_tag("lightbulb.png", :alt => "lightbulb") %>
+                                <p>Understand the language around Bitcoin and Cryptocurrencies to confidently explore the world of digital currency.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                         <div class="js-exchange-modal-click close-modal">x
                         </div>
                       </div>
