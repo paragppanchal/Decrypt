@@ -204,7 +204,6 @@ text-align:center;
   width: 800px;
   flex-wrap: wrap;
 }
-
 .exchange-modal-column {
   flex: 1;
   display: flex;
@@ -241,4 +240,15 @@ text-align:center;
 .modal-score{
   padding:50px;
   text-align:center;
+
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
+    height: 16px;
+    width: 16px;
+    margin-right: 10px;
 }

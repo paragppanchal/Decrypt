@@ -29,7 +29,7 @@ class BuyRateController < ApplicationController
                                             security: security_filter
                                           )
 
-    params[:payment_methods] ||= ["Mastercard", "VISA"]
+    params[:payment_methods] ||= ["SWIFT Bank Transfer", "SEPA Bank Transfer", "Mastercard", "VISA", "Paypal", "Sofort", "Giropay", "Skrill", "iDeal"]
     params[:features] ||= []
     params[:security] ||= []
   end
