@@ -192,11 +192,13 @@ Decrypt/app/views/buy_rate/bitcoin.html.erb
 
 
                         <div class="message-status">
+                          <% if false %>
                           <p>$<%= exchange.market_snapshot.buy_price.round(2) %>0</p>
+                          <% end %>
                         </div>
 
                         <div class="action-button">
-                          <a href="https://www.google.com">
+                          <a href= <%= exchange.url %> target="_blank" >
                             <button type="button" class="btn btn-primary">Go to site</button>
                           </a>
                         </div>
