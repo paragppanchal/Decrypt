@@ -194,3 +194,14 @@ display: flex;
   margin-left: 5px;
   }
 
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
+    height: 16px;
+    width: 16px;
+    margin-right: 10px;
+}
