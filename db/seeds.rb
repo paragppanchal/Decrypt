@@ -23,6 +23,7 @@
     exchange.two_factor_auth = attributes[:two_factor_auth]
     exchange.cold_storage = attributes[:cold_storage]
     exchange.multisig_wallets = attributes[:multisig_wallets]
+    exchange.url = attributes[:url]
     exchange.save!
   end
 
@@ -46,7 +47,8 @@
                     integrated_wallet: true,
                     two_factor_auth: true,
                     cold_storage: true,
-                    multisig_wallets: true
+                    multisig_wallets: true,
+                    url: 'https://cex.io/'
                   )
 
 
@@ -64,7 +66,8 @@
                     integrated_wallet: true,
                     two_factor_auth: true,
                     cold_storage: true,
-                    multisig_wallets: true
+                    multisig_wallets: true,
+                    url: 'https://www.coinbase.com/'
                   )
 
   exchange_record(  name: 'exmo',
@@ -81,7 +84,8 @@
                     integrated_wallet: true,
                     two_factor_auth: true,
                     cold_storage: true,
-                    multisig_wallets: false
+                    multisig_wallets: false,
+                    url: 'https://exmo.com/'
                   )
 
   exchange_record(  name: 'hitbtc',
@@ -98,7 +102,8 @@
                     integrated_wallet: true,
                     two_factor_auth: true,
                     cold_storage: true,
-                    multisig_wallets: false
+                    multisig_wallets: false,
+                    url: 'https://hitbtc.com/'
                   )
 
   exchange_record(  name: 'itbtc',
@@ -115,7 +120,8 @@
                     integrated_wallet: true,
                     two_factor_auth: true,
                     cold_storage: true,
-                    multisig_wallets: true
+                    multisig_wallets: true,
+                    url: 'https://www.itbit.com/'
                   )
 
   puts "Creating all the coins..."

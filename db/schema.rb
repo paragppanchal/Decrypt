@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_24_040150) do
+ActiveRecord::Schema.define(version: 2018_08_28_005909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2018_08_24_040150) do
     t.json "multisig_wallets"
     t.string "ease_of_use", default: "", null: false
     t.text "description"
+    t.string "url"
   end
 
   create_table "learnings", force: :cascade do |t|
