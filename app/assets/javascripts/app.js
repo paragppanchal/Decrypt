@@ -279,13 +279,13 @@
 
 
 
-      // Select
-      // $(function() {
-      //   $('select').selectric({
-      //     disableOnMobile: false,
-      //     nativeOnMobile: false
-      //   });
-      // });
+
+      $(function() {
+        $('select').selectric({
+          disableOnMobile: false,
+          nativeOnMobile: false
+        });
+      });
 
 
       // Radial

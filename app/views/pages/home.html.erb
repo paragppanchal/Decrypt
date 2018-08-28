@@ -12,38 +12,21 @@
 
     <div class="row">
       <div class="col">
-        <div class="row gutter-1">
+        <div class="row gutter-1 search-justify-center">
           <div class="form-group col-md-5">
             <%= form_tag buy_bitcoin_path, method: :get do %>
             <%= text_field_tag :query, params[:query], class: "form-control-lg form-control", placeholder: "Enter USD amount"%>
           </div>
-          <div class="form-group col-md-5">
-            <div onclick="dropdownCurrency()">
-              <div class="selectric-wrapper selectric-form-control selectric-form-control-lg">
-                <div class="selectric-hide-select">
-                  <select class="form-control form-control-lg" id="exampleFormControlSelect1" tabindex="-1" style="">
-                    <option>Bitcoin</option>
-                    <option>Ethereum</option>
-                    <option>Litecoin</option>
-                  </select>
-                </div>
-                <div class="selectric">
-                  <span class="label">Bitcoin</span>
-                  <b class="button">▾</b>
-                </div>
-              </div>
+          <div class="form-group col-md-3">
 
-              <div class="selectric-items" tabindex="-1" id="searchButton">
-                <div class="selectric-scroll" >
-                  <ul>
-                    <li data-index="0" class="selected">Bitcoin</li>
-                    <li data-index="1" class="">Ethereum</li>
-                    <li data-index="2" class="last">Litecoin</li>
-                  </ul>
-                </div>
-              </div>
-              <input class="selectric-input" tabindex="0">
-            </div>
+
+            <select class="form-control form-control-lg" id="exampleFormControlSelect1" tabindex="-1" style="">
+              <option value="btc">Bitcoin</option>
+              <option value="eth">Ethereum</option>
+              <option value="ltc">Litecoin</option>
+            </select>
+
+
           </div>
           <div class="form-group col-md-2">
             <button type="submit" class="btn btn-lg btn-block btn-primary">
@@ -57,16 +40,7 @@
     </div>
   </div>
 </section>
-<script>
-  function dropdownCurrency() {
-    var x = document.getElementById("searchButton");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
-  }
-</script>
+
 <!-- / cover -->
 
 <!--  wave -->
@@ -357,4 +331,8 @@
 </section>
 <!-- / blog -->
 
-
+<style>
+  .search-justify-center{
+    justify-content: center;
+  }
+</style>

@@ -162,12 +162,28 @@ width:100%;
 .exchange-ratings{
   margin: 10px 0;
 }
+.exchange-modal-content{
+  position:relative;
+}
 .close-modal{
   cursor: pointer;
   color: #aaa;
   font-size: 40px;
   font-weight: bold;
-  position: fixed;
-  top: 203px;
-  right: 309px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
+.refine-results{
+  margin-top: 20px;
+}
+.refine-results ul{
+padding-left:0;
+}
+.refine-results ul > li{
+list-style: none;
+display: flex;
+}
+.refine-results ul > li > p{
+  margin-left: 5px;
+  }
