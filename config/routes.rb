@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get 'learn/cryptocurrency-risks-dangers', to: 'learning_portal#risks-dangers', as: :learn_risk
   get 'learn/cryptocurrency-legalities', to: 'learning_portal#legalities', as: :learn_legalities
   get 'learn/cryptocurrency-wallets', to: 'learning_portal#wallets', as: :learn_wallets
+  get 'learn/cryptocurrency-tips', to: 'learning_portal#tips', as: :learn_tips
+  get 'learn/cryptocurrency-future', to: 'learning_portal#future', as: :learn_future
 
 
   root to: 'pages#home', as: :home
