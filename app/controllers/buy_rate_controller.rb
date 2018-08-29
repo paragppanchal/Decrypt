@@ -32,6 +32,11 @@ class BuyRateController < ApplicationController
     params[:payment_methods] ||= ["SWIFT Bank Transfer", "SEPA Bank Transfer", "Mastercard", "VISA", "Paypal", "Sofort", "Giropay", "Skrill", "iDeal"]
     params[:features] ||= []
     params[:security] ||= []
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # private

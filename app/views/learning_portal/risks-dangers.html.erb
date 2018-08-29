@@ -76,6 +76,36 @@
                 </div>
               </a>
             </li>
+
+            <li>
+              <a class="sidebar-item" href="/learn/cryptocurrency-legalities">
+                <div class="number"><span></span></div>
+                <div class="sidebar-holder">
+                  <div class="article-img">
+                    <%= image_tag("legalities.png") %>
+                  </div>
+                  <div class="sidebar-content">
+                    <h5>The legalities of cryptocurrency</h5>
+                  </div>
+                </div>
+              </a>
+            </li>
+
+            <li>
+              <a class="sidebar-item" href="/learn/cryptocurrency-wallets">
+                <div class="number"><span></span></div>
+                <div class="sidebar-holder">
+                  <div class="article-img">
+                    <%= image_tag("wallet.png") %>
+                  </div>
+                  <div class="sidebar-content">
+                    <h5>Wallets of cryptocurrency</h5>
+                  </div>
+                </div>
+              </a>
+            </li>
+
+
           </ul>
         </div>
       </div>
@@ -87,6 +117,8 @@
 
         <%= image_tag("crypto-risks.png") %>
         <br>
+        <br>
+        <iframe width="700" height="300" src="https://www.youtube.com/embed/tXBwcedQuQ0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="padding-left: 200px"></iframe>
         <br>
         <br>
 
@@ -110,6 +142,7 @@
         <br>
           <%= link_to "Previous: Types of cryptocurrency", learn_type_path, class: "btn btn-light" %>
           <%= link_to "Learning portal home", learn_bitcoin_path, class: "btn btn-info" %>
+          <%= link_to "Next: The legalities of cryptocurrency", learn_legalities_path, class: "btn btn-light" %>
       </div>
 
     </div>
