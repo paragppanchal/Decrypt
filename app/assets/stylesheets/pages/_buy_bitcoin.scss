@@ -221,18 +221,31 @@ text-align:center;
 .modal-main{
   padding:50px;
 }
+.modal-main-img{
+display:flex;
+justify-content:center;
+align-items:center;
+}
+.modal-main-content{
+  padding: 50px 0px;
+  text-align:left;
+}
 .modal-main-footer{
   display:flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   position:absolute;
   bottom:60px;
+  width: 30%;
 }
 .modal-tips{
-  padding:50px;
+  padding:30px;
 }
-
+.modal-tips p{
+  padding:10px;
+}
 .modal-score{
-  padding:50px;
+  margin-top:20px;
+  padding:20px;
   text-align:center;
 }
 input[type=number]::-webkit-inner-spin-button {
