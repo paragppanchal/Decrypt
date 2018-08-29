@@ -41,7 +41,16 @@
               <div class="col-lg-3" id="sidebar">
 
                 <!-- form -->
+<script>
+  $(document).ready(function(){
+    $('.js-select-all').on('change', function(){
+        $('input:checkbox').prop('checked', this.checked);
 
+        $('.js-select-all-fields').toggle(!this.checked);
+        $('.js-unselect-all-fields').toggle(this.checked);
+    })
+})
+</script>
                 <!-- /form -->
 
                 <!-- refine results -->
@@ -58,6 +67,13 @@
                     <!-- PAYMENT METHODS FILTER SELECTION -->
                     <br>
                     <h6><b>PAYMENT METHODS</b></h6>
+                      <li>
+                        <label>
+                          <input type="checkbox" class="js-select-all">
+                            <span class="js-select-all-fields">Select All</span>
+                            <span class="js-unselect-all-fields css-unselect-all-fields">Unselect All</span>
+                        </label>
+                      </li>
                     <li>
                       <%= check_box_tag 'swift_payment', 'SWIFT Bank Transfer', params[:payment_methods].include?('SWIFT Bank Transfer')%>
                       <%= label_tag 'swift_payment', 'SWIFT Bank Transfer', :name => "payment_methods[]" %>
@@ -95,8 +111,8 @@
                       <%= label_tag 'ideal_payment', 'iDeal', :name => "payment_methods[]" %>
                     </li>
                     <li>
-                      <%= check_box_tag 'bancontact_payment', 'Bancontact / Mister', params[:payment_methods].include?('Bancontact / Mister'), :name => "payment_methods[]" %>
-                      <%= label_tag 'bancontact_payment', 'Bancontact / Mister' %>
+                      <%= check_box_tag 'bancontact_payment', 'Bancontact / Mister', params[:payment_methods].include?('Bancontact / Mister') %>
+                      <%= label_tag 'bancontact_payment', 'Bancontact / Mister', :name => "payment_methods[]" %>
                     </li>
 
                     <!-- FEATURES FILTER SELECTION -->
