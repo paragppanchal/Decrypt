@@ -1,5 +1,5 @@
 <div class="learn-detail">
-  <div class="row">
+  <div class="row-learning">
 
     <div class="learn-sidebar col-md-4 col-sm-12 col-xs-12">
       <div>
@@ -154,7 +154,7 @@
       </p>
 
       <br>
-      <iframe width="700" height="300" src="https://www.youtube.com/embed/ykSdvGxGEjc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="padding-left: 200px"></iframe>
+      <iframe width="700" height="400" src="https://www.youtube.com/embed/ykSdvGxGEjc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen"></iframe>
       <br>
       <br>
 
@@ -192,9 +192,11 @@
             <br>
           </ul>
         </div>
-        <%= link_to "Previous: Origins of cryptocurrency", learn_origin_path, class: "btn btn-light" %>
-        <%= link_to "Learning portal home", learn_bitcoin_path, class: "btn btn-info" %>
-        <%= link_to "Next: Types of cryptocurrency", learn_type_path, class: "btn btn-light" %>
+        <div class="learn-buttons" style="margin-left: -69px;">
+          <%= link_to "Previous: Origins of cryptocurrency", learn_origin_path, class: "btn btn-link" %>
+          <%= link_to "Learning portal home", learn_bitcoin_path, class: "btn btn-info" %>
+          <%= link_to "Next: Types of cryptocurrency", learn_type_path, class: "btn btn-link" %>
+        </div>
       </div>
     </div>
   </div>
