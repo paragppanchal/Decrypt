@@ -124,6 +124,96 @@
                     url: 'https://www.itbit.com/'
                   )
 
+  exchange_record(  name: 'bitstamp',
+                    country: 'Luxembourg',
+                    verification_time: '> 1 Week',
+                    ease_of_use: 'Average',
+                    fee_description: "Price includes trading fee of 0.25%. Depending on volume, the fee might be lower. Addition fees apply based on payment method.",
+                    fees: "Low",
+                    rating: 4,
+                    payout_methods: ['SWIFT Bank Transfer', 'SEPA Bank Transfer', 'VISA', 'Mastercard'],
+                    payment_methods: ['SWIFT Bank Transfer', 'SEPA Bnak Transfer', 'VISA', 'Mastercard'],
+                    available_in_au: true,
+                    beginner_friendly: false,
+                    integrated_wallet: true,
+                    two_factor_auth: true,
+                    cold_storage: true,
+                    multisig_wallets: true,
+                    url: 'www.bitstamp.net'
+                  )
+
+  exchange_record(  name: 'bitfinex',
+                    country: 'Hong Kong',
+                    verification_time: '> 1 Week',
+                    ease_of_use: 'Average',
+                    fee_description: "Price includes 0.20% maker/taker fee. Depending on volume, the fee might be lower. Addition fees apply based on payment method.",
+                    fees: "Low",
+                    rating: 4,
+                    payout_methods: ['SWIFT Bank Transfer'],
+                    payment_methods: ['SWIFT Bank Transfer'],
+                    available_in_au: true,
+                    beginner_friendly: false,
+                    integrated_wallet: true,
+                    two_factor_auth: true,
+                    cold_storage: true,
+                    multisig_wallets: true,
+                    url: 'www.bitfinex.com'
+                  )
+
+  exchange_record(  name: 'kraken',
+                    country: 'United State',
+                    verification_time: '> 1 Week',
+                    ease_of_use: 'Average',
+                    fee_description: "Price applies when sending funds via bank wire / SEPA. An additional deposit transaction fee of 3.9% applies for other payment methods.",
+                    fees: "Low",
+                    rating: 1,
+                    payout_methods: ['SWIFT Bank Transfer', 'SEPA Bank Transfer'],
+                    payment_methods: ['SWIFT Bank Transfer', 'SEPA Bank Transfer'],
+                    available_in_au: true,
+                    beginner_friendly: false,
+                    integrated_wallet: true,
+                    two_factor_auth: true,
+                    cold_storage: true,
+                    multisig_wallets: true,
+                    url: 'https://www.kraken.com/'
+                  )
+
+  exchange_record(  name: 'lykke',
+                    country: 'Switzerland',
+                    verification_time: '< 3 Days',
+                    ease_of_use: 'Good',
+                    fee_description: "Price includes 0.26% maker/taker fee. Depending on volume, the fee might be lower. Addition fees apply based on payment method.",
+                    fees: "Low",
+                    rating: 4,
+                    payout_methods: ['SWIFT Bank Transfer', 'SEPA Bank Transfer', 'VISA', 'Mastercard', 'Paypal', 'Giropay', 'Skrill', 'iDeal'],
+                    payment_methods: ['SWIFT Bank Transfer', 'SEPA Bank Transfer'],
+                    available_in_au: true,
+                    beginner_friendly: true,
+                    integrated_wallet: true,
+                    two_factor_auth: true,
+                    cold_storage: true,
+                    multisig_wallets: true,
+                    url: 'https://www.lykke.com/'
+                  )
+
+  exchange_record(  name: 'independentreserve',
+                    country: 'Australia',
+                    verification_time: '> 1 Week',
+                    ease_of_use: 'Excellent',
+                    fee_description: "Price includes 0.1% maker/taker fee. Depending on volume, the fee might be lower. Addition fees apply based on payment method.",
+                    fees: "Low",
+                    rating: 4,
+                    payout_methods: ['SWIFT Bank Transfer'],
+                    payment_methods: ['SWIFT Bank Transfer'],
+                    available_in_au: true,
+                    beginner_friendly: true,
+                    integrated_wallet: true,
+                    two_factor_auth: true,
+                    cold_storage: true,
+                    multisig_wallets: false,
+                    url: 'https://www.independentreserve.com'
+                  )
+
   puts "Creating all the coins..."
 
   coin = Coin.new

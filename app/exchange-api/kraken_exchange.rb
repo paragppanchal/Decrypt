@@ -10,7 +10,7 @@ require 'open-uri'
 # when Buying BTC/USD => Ask price
 # when Selling BTC/USD => Bid price
 
-class ItbitExchange
+class KrakenExchange
 
   attr_accessor :base_currency_code, :quote_currency_code, :buy_price, :sell_price
 
@@ -23,42 +23,35 @@ class ItbitExchange
 
   def fetch_buy_price!
 
-    # URL:  https://api.itbit.com/v1/markets/{tickerSymbol}/ticker
+    # URL : https://api.kraken.com/0/public/Ticker?pair=X{base_currency}Z{quote_currency}
+    # e.g   https://api.kraken.com/0/public/Ticker?pair=XXBTZUSD
+    # Bitcoin -> XBT  , US Dollar -> USD
     # NOTE: tickerSymbol  -> always pass XBT for bitcoin. this exchange excepts XBT as
     # bitcoin symbole and NOT BTC
 
     #response:
-    #  {
-    #     "pair": "XBTUSD",
-    #     "bid": "6689.65",
-    #     "bidAmt": "2.1408",
-    #     "ask": "6694.16",
-    #     "askAmt": "1.3913",
-    #     "lastPrice": "6694.42000000",
-    #     "lastAmt": "0.40000000",
-    #     "volume24h": "2136.31980000",
-    #     "volumeToday": "814.23300000",
-    #     "high24h": "6903.36000000",
-    #     "low24h": "6285.81000000",
-    #     "highToday": "6903.36000000",
-    #     "lowToday": "6440.83000000",
-    #     "openToday": "6477.89000000",
-    #     "vwapToday": "6703.19495129",
-    #     "vwap24h": "6529.89765601",
-    #     "serverTimeUTC": "2018-08-22T02:17:06.4244488Z"
-    # }
+    # a = ask array(<price>, <whole lot volume>, <lot volume>),
+    # b = bid array(<price>, <whole lot volume>, <lot volume>),
+    # c = last trade closed array(<price>, <lot volume>),
+    # v = volume array(<today>, <last 24 hours>),
+    # p = volume weighted average price array(<today>, <last 24 hours>),
+    # t = number of trades array(<today>, <last 24 hours>),
+    # l = low array(<today>, <last 24 hours>),
+    # h = high array(<today>, <last 24 hours>),
+    # o = today's opening price
+
     if @base_currency_code == 'BTC'
       bcc = 'XBT'
     else
       bcc = @base_currency_code
     end
-    url = "https://api.itbit.com/v1/markets/#{bcc}#{quote_currency_code}/ticker"
+
+    url = "https://api.kraken.com/0/public/Ticker?pair=X#{bcc}Z#{@quote_currency_code}"
     response = fetch_from_url(url)
     # TODO - Heandle exception of response here
 
     # when Buying BTC/USD => Ask price
-    @buy_price = response["ask"].to_f
-
+    @buy_price = response["result"]["X#{bcc}Z#{@quote_currency_code}"]["a"][0].to_f
   end
 
   def fetch_sell_price!
@@ -67,12 +60,12 @@ class ItbitExchange
     else
       bcc = @base_currency_code
     end
-    url = "https://api.itbit.com/v1/markets/#{bcc}#{quote_currency_code}/ticker"
+    url = "https://api.kraken.com/0/public/Ticker?pair=X#{bcc}Z#{@quote_currency_code}"
     response = fetch_from_url(url)
     # TODO - Heandle exception of response here
 
     # when Selling BTC/USD => Bid price
-    @sell_price = response["bid"].to_f
+    @sell_price = response["result"]["X#{bcc}Z#{@quote_currency_code}"]["b"][0].to_f
   end
 
   private

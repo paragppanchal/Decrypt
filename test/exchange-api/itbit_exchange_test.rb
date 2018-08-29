@@ -1,9 +1,6 @@
 require_relative '../../app/exchange-api/itbit_exchange'
 
-# NOTE: tickerSymbol  -> always pass XBT for bitcoin. this exchange excepts XBT as
-# bitcoin symbole and NOT BTC
-
-itbit = ItbitExchange.new('XBT', 'USD')
+itbit = ItbitExchange.new('BTC', 'USD')
 
 itbit.fetch_buy_price!
 itbit.fetch_sell_price!

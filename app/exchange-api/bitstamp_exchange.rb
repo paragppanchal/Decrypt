@@ -10,7 +10,7 @@ require 'open-uri'
 # when Buying BTC/USD => Ask price
 # when Selling BTC/USD => Bid price
 
-class ItbitExchange
+class BitstampExchange
 
   attr_accessor :base_currency_code, :quote_currency_code, :buy_price, :sell_price
 
@@ -23,36 +23,23 @@ class ItbitExchange
 
   def fetch_buy_price!
 
-    # URL:  https://api.itbit.com/v1/markets/{tickerSymbol}/ticker
-    # NOTE: tickerSymbol  -> always pass XBT for bitcoin. this exchange excepts XBT as
-    # bitcoin symbole and NOT BTC
-
+    # URL:  https://www.bitstamp.net/api/v2/ticker/{currency_pair}/
+    # Supported values for currency_pair: btcusd, btceur, eurusd, xrpusd, xrpeur,
+    # xrpbtc, ltcusd, ltceur, ltcbtc, ethusd, etheur, ethbtc, bchusd, bcheur, bchbtc
     #response:
-    #  {
-    #     "pair": "XBTUSD",
-    #     "bid": "6689.65",
-    #     "bidAmt": "2.1408",
-    #     "ask": "6694.16",
-    #     "askAmt": "1.3913",
-    #     "lastPrice": "6694.42000000",
-    #     "lastAmt": "0.40000000",
-    #     "volume24h": "2136.31980000",
-    #     "volumeToday": "814.23300000",
-    #     "high24h": "6903.36000000",
-    #     "low24h": "6285.81000000",
-    #     "highToday": "6903.36000000",
-    #     "lowToday": "6440.83000000",
-    #     "openToday": "6477.89000000",
-    #     "vwapToday": "6703.19495129",
-    #     "vwap24h": "6529.89765601",
-    #     "serverTimeUTC": "2018-08-22T02:17:06.4244488Z"
-    # }
-    if @base_currency_code == 'BTC'
-      bcc = 'XBT'
-    else
-      bcc = @base_currency_code
-    end
-    url = "https://api.itbit.com/v1/markets/#{bcc}#{quote_currency_code}/ticker"
+     #  {
+     #     "high": "7125.28",
+     #     "last": "7070.45",
+     #     "timestamp": "1535502029",
+     #     "bid": "7063.04",
+     #     "vwap": "7002.71",
+     #     "volume": "8164.95195748",
+     #     "low": "6861.17",
+     #     "ask": "7071.70",
+     #     "open": "7079.46"
+     # }
+
+    url = "https://www.bitstamp.net/api/v2/ticker/#{@base_currency_code.downcase}#{@quote_currency_code.downcase}/"
     response = fetch_from_url(url)
     # TODO - Heandle exception of response here
 
@@ -62,12 +49,8 @@ class ItbitExchange
   end
 
   def fetch_sell_price!
-    if @base_currency_code == 'BTC'
-      bcc = 'XBT'
-    else
-      bcc = @base_currency_code
-    end
-    url = "https://api.itbit.com/v1/markets/#{bcc}#{quote_currency_code}/ticker"
+
+    url = "https://www.bitstamp.net/api/v2/ticker/#{@base_currency_code.downcase}#{@quote_currency_code.downcase}/"
     response = fetch_from_url(url)
     # TODO - Heandle exception of response here
 

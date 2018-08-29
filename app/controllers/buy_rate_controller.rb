@@ -39,7 +39,7 @@ class BuyRateController < ApplicationController
     end
   end
 
-  # private
+  private
 
   def filter_exchanges(market_snapshots, q_amt, filters={})
 
