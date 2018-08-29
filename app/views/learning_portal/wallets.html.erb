@@ -104,6 +104,8 @@
                 </div>
               </a>
             </li>
+
+
           </ul>
         </div>
       </div>
@@ -111,30 +113,38 @@
 
     <div class="crypto-learn-wrapper col-md-8 col-md-push-4">
 
-      <h1>Welcome to the exciting world of cryptocurrency</h1>
+      <h1>Wallets of cryptocurrency</h1>
 
-      <div class="crypto-learn-content">
-        <div style="text-align:center"><%= image_tag("crypto-welcome.png") %></div>
-        <br>
+      <%= image_tag("walletbig.png") %>
+      <br>
+      <br>
+      <br>
 
-        <p style="font-size: 25px line-height: px">
-          It is hard to find people who have never heard of cryptocurrency before, thanks to its rapid growth. Cryptocurrency is only a term used to describe the different types of currencies inside the cryptocurrency market. The most common currency is <strong><em>Bitcoin</em></strong>, followed be other strong-performing currencies such as <strong><em>Ethereum</em></strong>, <strong><em>Litecoin</em></strong>, and many, many more
-        </p>
-        <br>
-        <p>
-          Here in our library, you will find all the tools you need to educate yourself in order to be a promising investor in the cryptocurrency market. The topics range from the history and the types of cryptocurrency to the risks and dangers of it.
-        </p>
-        <br>
-        <p>
-          Be sure to read everything carefully as the cryptocurrency market, while exciting, is rather volatile at the moment. You need to make sure you educate yourself enough before delving deeper.
-        </p>
-        <div id="unique">
-          <%= link_to "Learning portal home", learn_bitcoin_path, class: "btn btn-info" %>
-          <%= link_to "Next: Introduction to cryptocurrency", learn_intro_path, class: "btn btn-light" %>
-        </div>
+      <p style="font-size: 25px line-height: px">
+        A cryptocurrency wallet stores the public and private keys which can be used to receive or spend the cryptocurrency. A wallet can contain multiple public and private key pairs. As of January 2018, there are over thirteen hundred cryptocurrencies; the first and best known is bitcoin. The cryptocurrency itself is not in the wallet. In case of bitcoin and cryptocurrencies derived from it, the cryptocurrency is decentrally stored and maintained in a publicly available ledger. Every piece of cryptocurrency has a private key. With the private key, it is possible to write in the public ledger, effectively spending the associated cryptocurrency.
+      </p>
+
+      <br>
+      <iframe width="700" height="300" src="https://www.youtube.com/embed/NI0OsEL92_0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="padding-left: 200px"></iframe>
+      <br>
+      <br>
+      <h5>Wallet characteristics</h5>
+      <ul>
+        <li>Multicurrency</li>
+        <li>Software wallet</li>
+        <li>Hardware wallet</li>
+        <li>Watch-only wallet</li>
+        <li>Multisignature wallet</li>
+      </ul>
+      <br>
+      <br>
+      <p>
+        When choosing a wallet, the owner must keep in mind who is supposed to have access to (a copy of) the private keys and thus potentially has access to the cryptocurrency. Just like with a bank, the user needs to trust the provider to keep the cryptocurrency safe. Trust was misplaced in the case of the Mt. Gox exchange, which 'lost' most of their clients' bitcoins. Downloading a cryptocurrency wallet from a wallet provider to a computer or phone does not automatically mean that the owner is the only one who has a copy of the private keys. For example with Coinbase, it is possible to install a wallet on a phone and to also have access to the same wallet through their website. A wallet can also have known or unknown vulnerabilities. For receiving cryptocurrency, access to the receiving wallet is not needed. The sending party only needs to know the destination address. Anyone can send cryptocurrency to an address. Only the one who has the private key of the corresponding address can use it.
+      </p>
+
+        <%= link_to "Previous: The legalities of cryptocurrency", learn_legalities_path, class: "btn btn-light" %>
+        <%= link_to "Learning portal home", learn_bitcoin_path, class: "btn btn-info" %>
       </div>
-
     </div>
   </div>
-</div>
 

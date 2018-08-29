@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get 'learn/cryptocurrency-pros-cons', to: 'learning_portal#proscons', as: :learn_proscons
   get 'learn/cryptocurrency-types', to: 'learning_portal#types', as: :learn_type
   get 'learn/cryptocurrency-risks-dangers', to: 'learning_portal#risks-dangers', as: :learn_risk
+  get 'learn/cryptocurrency-legalities', to: 'learning_portal#legalities', as: :learn_legalities
+  get 'learn/cryptocurrency-wallets', to: 'learning_portal#wallets', as: :learn_wallets
 
 
   root to: 'pages#home', as: :home
