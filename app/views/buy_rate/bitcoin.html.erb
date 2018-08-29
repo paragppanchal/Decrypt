@@ -45,21 +45,17 @@
             <div class="row" id="content">
               <div class="col-lg-3" id="sidebar">
 
-                <!-- form -->
-
-                <!-- /form -->
 
                 <!-- refine results -->
                 <div class="refine-results">
-
+                <div class="refine-results-search">
                   <%= form_tag buy_bitcoin_path, method: :get do %>
-                  <%= text_field_tag :amount, params[:amount], class: "form-control", placeholder: "Enter USD amount", type:'number', min: '1'%>
+                  <%= text_field_tag :amount, params[:amount], class: "refine-results-form-control", placeholder: "Enter USD amount", type:'number', min: '1'%>
                   <br>
-                  <button type="submit" class="btn btn-lg btn-block btn-primary">
-
+                  <button type="submit" class="btn-outline-indigo btn btn-md btn-primary refine-results-button">
                     <i class="fas fa-search"></i>
-                    Compare
                   </button>
+                </div>
                   <ul>
                     <!-- PAYMENT METHODS FILTER SELECTION -->
                     <br>
@@ -143,7 +139,7 @@
                 </div><!-- /refine results -->
                 <!-- price-alert-modal -->
                 <br>
-                <button id="myBtn" class="btn btn-primary btn-block"">Price Alert</button>
+                <button id="myBtn" class="btn btn-primary btn-block btn-outline-purple"">Price Alert</button>
                 <div id="myModal" class="modal">
                   <div class="email-modal-content">
                     <span class="close">&times;</span>
@@ -263,6 +259,3 @@
   </div>
 </section>
 <!-- / about -->
-
-<%= render 'bitcoin' %>
-
