@@ -249,8 +249,15 @@ align-items:center;
   padding:20px;
   text-align:center;
 }
+
+input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
 }
 
 input[type="checkbox"] {
@@ -293,4 +300,10 @@ transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 display: flex;
 justify-content: center;
 align-content: center;
+}
+.css-checkbox-display-none{
+  display:none;
+}
+.checkbox-filter{
+  margin-bottom:20px;
 }
