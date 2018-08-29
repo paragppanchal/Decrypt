@@ -16,3 +16,14 @@ document.querySelectorAll('.refine-results ul li input').forEach((checkbox) => {
     document.querySelector('.refine-results form button').click();
   })
 })
+
+// uncheck check on refine search
+
+$(document).ready(function(){
+  $('.js-select-all').on('change', function(){
+    $('input:checkbox').prop('checked', this.checked);
+
+    $('.js-select-all-fields').toggle(!this.checked);
+    $('.js-unselect-all-fields').toggle(this.checked);
+  })
+})
