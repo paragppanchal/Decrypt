@@ -26,7 +26,7 @@
 
 
                       <div class="message-status">
-                        <% if params[:amount].empty? %>
+                        <% if params[:amount].blank? %>
                         <h5><b><i class="fab fa-btc"></i> 1 = USD <%= eh[:market_snapshot].buy_price.round(2) %></b></h5>
                         <% else %>
                         <p>$<%= params[:amount] %> will get you:</p>
