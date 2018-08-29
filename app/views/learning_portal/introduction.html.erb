@@ -1,5 +1,5 @@
 <div class="learn-detail">
-  <div class="row">
+  <div class="row-learning">
 
     <div class="learn-sidebar col-md-4 col-sm-12 col-xs-12">
       <div>
@@ -147,7 +147,7 @@
           <%= image_tag("what-is-crypto.png") %>
           <br>
           <br>
-        <iframe width="700" height="300" src="https://www.youtube.com/embed/pwaZYFPLAdI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="padding-left: 200px"></iframe>
+        <iframe width="700" height="400" src="https://www.youtube.com/embed/pwaZYFPLAdI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen"></iframe>
         <br>
         <br>
         <p style="font-size: 55px line-height: px">
@@ -170,9 +170,11 @@
         <br>
         <br>
         <br>
-        <%= link_to "Previous: Learning portal home", learn_bitcoin_path, class: "btn btn-light" %>
-        <%= link_to "Learning portal home", learn_bitcoin_path, class: "btn btn-info" %>
-        <%= link_to "Next: Origins of cryptocurrency", learn_origin_path, class: "btn btn-light" %>
+        <div class="learn-buttons">
+          <%= link_to "Previous: Learning portal home", learn_bitcoin_path, class: "btn btn-link" %>
+          <%= link_to "Learning portal home", learn_bitcoin_path, class: "btn btn-info" %>
+          <%= link_to "Next: Origins of cryptocurrency", learn_origin_path, class: "btn btn-link" %>
+        </div>
         <br>
         <br>
       </div>
