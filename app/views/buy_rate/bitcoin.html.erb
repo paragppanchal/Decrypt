@@ -190,7 +190,7 @@
                         <% if params[:amount].empty? %>
                         <h5><b><i class="fab fa-btc"></i> 1 = USD <%= eh[:market_snapshot].buy_price.round(2) %></b></h5>
                         <% else %>
-                        <h5>$<%= params[:amount] %> will get you</h5>
+                        <p>$<%= params[:amount] %> will get you:</p>
                         <h5><b><i class="fab fa-btc"></i><%= eh[:bitcoin].round(4) %> </b></h5>
                         <% end %>
                       </div>
