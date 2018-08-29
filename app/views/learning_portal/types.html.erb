@@ -1,5 +1,5 @@
 <div class="learn-detail">
-  <div class="row">
+  <div class="row-learning">
 
     <div class="learn-sidebar col-md-4 col-sm-12 col-xs-12">
       <div>
@@ -152,7 +152,7 @@
           Bitcoin has not just been a trendsetter, ushering in a wave of cryptocurrencies built on decentralized peer-to-peer network, it’s become the de facto standard for cryptocurrencies​. The currencies inspired by Bitcoin are collectively called altcoins and have tried to present themselves as modified or improved versions of Bitcoin. While some of these currencies are easier to mine than Bitcoin is, there are tradeoffs, including greater risk brought on by lesser liquidity, acceptance and value retention. We look at five cryptocurrencies, picked from over 700, that could be worth your while.
         </p>
         <br>
-        <iframe width="700" height="300" src="https://www.youtube.com/embed/4fFdhQeRhh0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="padding-left: 200px"></iframe>
+        <iframe width="700" height="400" src="https://www.youtube.com/embed/4fFdhQeRhh0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen"></iframe>
         <br>
         <br>
         <ol>
@@ -175,9 +175,11 @@
         <br>
         <br>
         <br>
-        <%= link_to "Previous: Cryptocurrency pros & cons", learn_proscons_path, class: "btn btn-light" %>
-        <%= link_to "Learning portal home", learn_bitcoin_path, class: "btn btn-info" %>
-        <%= link_to "Next: Risks of cryptocurrency", learn_risk_path, class: "btn btn-light" %>
+        <div class="learn-buttons" style="margin-left: -75px;">
+          <%= link_to "Previous: Cryptocurrency pros & cons", learn_proscons_path, class: "btn btn-link" %>
+          <%= link_to "Learning portal home", learn_bitcoin_path, class: "btn btn-info" %>
+          <%= link_to "Next: Risks of cryptocurrency", learn_risk_path, class: "btn btn-link" %>
+        </div>
         <br>
       </div>
 

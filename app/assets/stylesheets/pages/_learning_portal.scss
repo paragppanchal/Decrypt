@@ -99,3 +99,15 @@
 #unique {
   padding-left: 202px;
 }
+
+.row-learning {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 155px;
+  margin-left: 145px;
+}
+
+.learn-buttons {
+  display: flex;
+  justify-content: space-around;
+}
