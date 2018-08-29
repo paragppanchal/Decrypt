@@ -15069,11 +15069,13 @@ footer {
   .user-panel strong,
   .tile .tile-content strong, .text-white b, .user-panel b, .tile .tile-content b, .text-white li, .user-panel li, .tile .tile-content li, .text-white a:not(.btn), .user-panel a:not(.btn), .tile .tile-content a:not(.btn) {
     color: #fff; }
-  .text-white p, .user-panel p, .tile .tile-content p, .text-white span:not(.badge), .user-panel span:not(.badge), .tile .tile-content span:not(.badge) {
+  .user-panel p, .tile .tile-content p, .text-white span:not(.badge), .user-panel span:not(.badge), .tile .tile-content span:not(.badge) {
     color: rgba(255, 255, 255, 0.5); }
   .text-white hr, .user-panel hr, .tile .tile-content hr {
     border-color: rgba(255, 255, 255, 0.2); }
-
+    .text-white p{
+      color:white;
+    }
 .revert {
   color: #151515; }
   .revert h1, .revert h2, .revert h3, .revert h4, .revert h5, .revert h6,
@@ -20278,6 +20280,19 @@ pre[class*="language-"] {
     position: absolute;
     top: 1.875rem;
     right: 1.875rem; }
-
+.logos-align-flex-end{
+  display: flex;
+justify-content: end;
+}
+.home-logo-size{
+  width: 200px;
+}
+.search-justify-center{
+  justify-content: center;
+}
+.hero-justify-center{
+  justify-content: center;
+}
+// dont remove
 /*# sourceMappingURL=style.css.map */
-
+// dont remove

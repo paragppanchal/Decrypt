@@ -6,10 +6,11 @@
     <div class="row hero-justify-center">
       <div class="col-md-10">
         <!-- <span class="eyebrow mb-1 text-primary">Ready to start ?</span> -->
-        <h1 class="display-2"><b>Cryptocurrency</b> made easy</h1>
+        <h1 class="display-2">Crypto made<b> easy</b></h1>
         <h2>Find the best prices on exchanges in seconds</h2>
       </div>
     </div>
+
 
     <div class="row">
       <div class="col">
@@ -32,7 +33,7 @@
           <div class="form-group col-md-2">
             <button type="submit" class="btn btn-lg btn-block btn-primary">
               <i class="fas fa-search"></i>
-              Compare
+              Find
             </button>
           </div>
           <% end %>
@@ -69,48 +70,79 @@
 <!-- about -->
 <section class="bg-light pb-0">
   <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" data-bottom-top="transform:scale(0.9)" data-top-bottom="transform:scale(1)">
       <div class="col-md-10">
         <div class="row separator-bottom pb-5 mb-5">
-          <div class="col">
+          <div class="col-xs-12 col-lg-6">
             <h2>Crypto Price Finder helps you <b>compare</b> prices.</h2>
           </div>
-          <div class="col">
-            <p class="lead"><!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et quod quasi non nostrum nobis laudantium pariatur enim nihil animi, iusto est, ea dignissimos? Voluptas rem, necessitatibus sed sint adipisci nulla! --></p>
+          <div class="col-xs-12 col-lg-6">
+            <!-- <p class="lead"> -->
+              <div class="row logos-align-flex-end">
+                <span class="col-sm-4 col-md-4 col-lg-3"><%= image_tag "coinbase.png", class: "logo-size" %></span>
+                <span class="col-sm-4 col-md-4 col-lg-3"><%= image_tag "cexio.png", class: "logo-size" %></span>
+                <span class="col-sm-4 col-md-4 col-lg-3"><%= image_tag "coinbase.png", class: "logo-size" %></span>
+              </div>
+              <div class="row logos-align-flex-end">
+                <span class="col-sm-4 col-md-4 col-lg-3"><%= image_tag "coinbase.png", class: "logo-size" %></span>
+                <span class="col-sm-4 col-md-4 col-lg-3"><%= image_tag "exmo.png", class: "logo-size" %></span>
+                <span class="col-sm-4 col-md-4 col-lg-3"><%= image_tag "hitbtc.png", class: "logo-size" %></span>
+              </div>
+
+
+              <!-- </p> -->
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<!-- / about -->
+  </section>
+  <!-- / about -->
 
 
-<!-- featured carousel -->
-<section class="bg-light pb-0">
-  <div class="container-fluid">
-    <div class="row" data-aos="fade-up">
-      <div class="col">
-        <div class="gallery">
-          <div class="gallery-container">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="image image-zoom image-overlay-dark" style="background-image:url(../../assets/images/demo/travel/travel-9.jpg)">
+  <!-- featured carousel -->
+  <section class="bg-light pb-0">
+    <div class="container-fluid">
+      <div class="row" data-aos="fade-up">
+        <div class="col">
+          <div class="gallery">
+            <div class="gallery-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="image image-zoom image-overlay-dark" style="background-image:url(https://source.unsplash.com/VdFkSO3uePI/1600x900)">
+                  </div>
+                  <div class="caption text-white" data-swiper-parallax="-100%">
+                    <div class="container">
+                      <div class="row align-items-center justify-content-center vh-50">
+                        <div class="col text-center">
+                          <span class="eyebrow">What it means</span>
+                          <h1 class="display-3"><b>Translating</b> The Jargon</h1>
+                          <%= link_to 'Learning Portal', learn_path, class:"btn btn-outline-white btn-rounded" %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="image image-overlay-dark image-scrolling" style="background-image:url(https://source.unsplash.com/NFs6dRTBgaM/1600x900)"
+                  data--100-bottom-top="transform: translateY(0%);"
+                  data-top-bottom="transform: translateY(25%);">
                 </div>
                 <div class="caption text-white" data-swiper-parallax="-100%">
                   <div class="container">
-                    <div class="row align-items-center justify-content-center vh-50">
-                      <div class="col text-center">
-                        <span class="eyebrow">What it means</span>
-                        <h1 class="display-3"><b>Translating</b> The Jargon</h1>
-                        <%= link_to 'Learning Portal', learn_path, class:"btn btn-outline-white btn-rounded" %>
+                    <div class="row align-items-center vh-75">
+                      <div class="col-md-8 col-lg-6">
+                        <span class="eyebrow">Definition</span>
+                        <h1 class="display-3 mb-1">Blockchain</h1>
+                        <p>    A decentralised network that records transactions, much like a traditional ledger. These transactions can be any movement of currency, goods or secure data.</p>
+                        <a href="" class="btn btn-white btn-rounded mt-2 px-5">Learn More</a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="swiper-slide">
-                <div class="image image-overlay-dark image-scrolling" style="background-image:url(../../assets/images/demo/travel/travel-7.jpg)"
+                <div class="image image-overlay-dark image-scrolling" style="background-image:url(https://source.unsplash.com/q8qxkLV_GhA/1600x900)"
                 data--100-bottom-top="transform: translateY(0%);"
                 data-top-bottom="transform: translateY(25%);">
               </div>
@@ -119,50 +151,32 @@
                   <div class="row align-items-center vh-75">
                     <div class="col-md-8 col-lg-6">
                       <span class="eyebrow">Definition</span>
-                      <h1 class="display-3 mb-1">Blockchain</h1>
-                      <p>    A decentralised network that records transactions, much like a traditional ledger. These transactions can be any movement of currency, goods or secure data.</p>
+                      <h1 class="display-3 mb-1">Mining</h1>
+                      <p>The committing of computer hardware to process transactions on a blockchain (Bitcoin or otherwise). Miners do this to receive mining rewards and profit.</p>
                       <a href="" class="btn btn-white btn-rounded mt-2 px-5">Learn More</a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="swiper-slide">
-              <div class="image image-overlay-dark image-scrolling" style="background-image:url(../../assets/images/demo/travel/travel-8.jpg)"
-              data--100-bottom-top="transform: translateY(0%);"
-              data-top-bottom="transform: translateY(25%);">
-            </div>
-            <div class="caption text-white" data-swiper-parallax="-100%">
-              <div class="container">
-                <div class="row align-items-center vh-75">
-                  <div class="col-md-8 col-lg-6">
-                    <span class="eyebrow">Definition</span>
-                    <h1 class="display-3 mb-1">Mining</h1>
-                    <p>The committing of computer hardware to process transactions on a blockchain (Bitcoin or otherwise). Miners do this to receive mining rewards and profit.</p>
-                    <a href="" class="btn btn-white btn-rounded mt-2 px-5">Learn More</a>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
-      </div>
-      <div class="gallery-thumbs">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <h5>Decentralized</h5>
-          </div>
-          <div class="swiper-slide">
-            <h5>Blockchain</h5>
-          </div>
-          <div class="swiper-slide">
-            <h5>Mining</h5>
+        <div class="gallery-thumbs">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <h5>Decentralized</h5>
+            </div>
+            <div class="swiper-slide">
+              <h5>Blockchain</h5>
+            </div>
+            <div class="swiper-slide">
+              <h5>Mining</h5>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 </section>
 <!-- / featured carousel -->
@@ -281,11 +295,10 @@
       <div class="col-md-5 pl-md-5 text-center text-md-left">
         <!-- <span class="eyebrow text-primary mb-1">Special for you</span> -->
         <h2 class="mb-2">Will my money be <b>safe</b>? </h2>
-        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos tempore, inventore accusamus odio</p> -->
-        <a href="" class="btn btn-primary btn-rounded">Read About Safety</a>
+        <p>Before investing in any cryptocurrency, it's key to be informed about the exchange and coin you are choosing. We have an easy guide to follow.</p>
       </div>
       <div class="col-md-7" data-aos="zoom-in">
-
+        <a href="" class="btn btn-primary btn-rounded">Read About Safety</a>
       </div>
     </div>
   </div>
@@ -333,11 +346,6 @@
 </section>
 <!-- / blog -->
 
-<style>
-  .search-justify-center{
-    justify-content: center;
-  }
-  .hero-justify-center{
-    justify-content: center;
-  }
-</style>
+<script>
+  skrollr.init()
+</script>

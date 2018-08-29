@@ -3,17 +3,12 @@
       <div class="row hero-buy-bitcoin-center-align">
         <div class="col-md-10">
           <!-- <span class="eyebrow mb-1 text-primary">Ready to start ?</span> -->
-          <h1 class="display-2">Cryptocurrency made <b>easy.</b> </h1>
+          <h1 class="display-2">Prices <b>compared.</b> </h1>
         </div>
       </div>
     </div>
   </section>
 
-  <style>
-  .hero-compare-page{
-    padding-bottom: 0!important;
-  }
-</style>
 <!--  wave -->
 <section class="section-decorated-bottom pt-0">
   <div class="decorated-bottom text-light">
@@ -46,95 +41,109 @@
               <div class="col-lg-3" id="sidebar">
 
                 <!-- form -->
+<script>
+  $(document).ready(function(){
+    $('.js-select-all').on('change', function(){
+        $('input:checkbox').prop('checked', this.checked);
 
+        $('.js-select-all-fields').toggle(!this.checked);
+        $('.js-unselect-all-fields').toggle(this.checked);
+    })
+})
+</script>
                 <!-- /form -->
 
                 <!-- refine results -->
-                <div class="refine-results">
-                <p>Enter amount to compare:</p>
+              <div class="refine-results">
+                <div class="refine-results-search">
                   <%= form_tag buy_bitcoin_path, method: :get, remote: true do %>
-                  <%= text_field_tag :amount, params[:amount], class: "form-control", placeholder: "Enter USD amount", type:'number', min: '1'%>
+                  <%= text_field_tag :amount, params[:amount], class: "refine-results-form-control", placeholder: "USD", type:'number', min: '1'%>
                   <br>
-                  <button type="submit" class="btn btn-lg btn-block btn-primary">
-
+                  <button type="submit" class="btn-outline-indigo btn btn-md btn-primary refine-results-button">
                     <i class="fas fa-search"></i>
-                    Compare
                   </button>
+                </div>
                   <ul>
                     <!-- PAYMENT METHODS FILTER SELECTION -->
                     <br>
-                    <h6><b>PAYMENT METHODS</b></h6>
+                        <label class="checkbox-filter">
+                          <input type="checkbox" class="js-select-all css-checkbox css-checkbox-display-none">
+                            <span class="js-select-all-fields">CHECK ALL <i class="fas fa-check"></i></span>
+                            <span class="js-unselect-all-fields css-unselect-all-fields">UNCHECK ALL <i class="fas fa-times"></i></span>
+                        </label>
+
+                      <h6><b>PAYMENT METHODS</b></h6>
                     <li>
-                      <%= check_box_tag 'payment_methods[]', 'SWIFT Bank Transfer', params[:payment_methods].include?('SWIFT Bank Transfer')%>
-                      <%= label_tag 'payment_methods[]', 'SWIFT Bank Transfer' %>
+                      <%= check_box_tag 'swift_payment', 'SWIFT Bank Transfer', params[:payment_methods].include?('SWIFT Bank Transfer')%>
+                      <%= label_tag 'swift_payment', 'SWIFT Bank Transfer', :name => "payment_methods[]" %>
                     </li>
                     <li>
-                      <%= check_box_tag 'payment_methods[]', 'SEPA Bank Transfer', params[:payment_methods].include?('SEPA Bank Transfer')%>
-                      <%= label_tag 'payment_methods[]', 'SEPA Bank Transfer' %>
+                      <%= check_box_tag 'sepa_payment', 'SEPA Bank Transfer', params[:payment_methods].include?('SEPA Bank Transfer'), :name => "payment_methods[]" %>
+                      <%= label_tag 'sepa_payment', 'SEPA Bank Transfer' %>
                     </li>
                     <li>
-                      <%= check_box_tag 'payment_methods[]', 'VISA', params[:payment_methods].include?('VISA')%>
-                      <%= label_tag 'payment_methods[]', 'VISA' %>
+                      <%= check_box_tag 'visa_payment', 'VISA', params[:payment_methods].include?('VISA'), :name => "payment_methods[]" %>
+                      <%= label_tag 'visa_payment', 'VISA' %>
                     </li>
                     <li>
-                      <%= check_box_tag 'payment_methods[]', 'Mastercard', params[:payment_methods].include?('Mastercard')%>
-                      <%= label_tag 'payment_methods[]', 'Mastercard' %>
+                      <%= check_box_tag 'mastercard_payment', 'Mastercard', params[:payment_methods].include?('Mastercard')%>
+                      <%= label_tag 'mastercard_payment', 'Mastercard', :name => "payment_methods[]" %>
                     </li>
                     <li>
-                      <%= check_box_tag 'payment_methods[]', 'Paypal', params[:payment_methods].include?('Paypal')%>
-                      <%= label_tag 'payment_methods[]', 'Paypal' %>
+                      <%= check_box_tag 'paypal_payment', 'Paypal', params[:payment_methods].include?('Paypal')%>
+                      <%= label_tag 'paypal_payment', 'Paypal', :name => "payment_methods[]" %>
                     </li>
                     <li>
-                      <%= check_box_tag 'payment_methods[]', 'Sofort', params[:payment_methods].include?('Sofort')%>
-                      <%= label_tag 'payment_methods[]', 'Sofort' %>
+                      <%= check_box_tag 'sofort_payment', 'Sofort', params[:payment_methods].include?('Sofort')%>
+                      <%= label_tag 'sofort_payment', 'Sofort', :name => "payment_methods[]" %>
                     </li>
                     <li>
-                      <%= check_box_tag 'payment_methods[]', 'Giropay', params[:payment_methods].include?('Giropay')%>
-                      <%= label_tag 'payment_methods[]', 'Giropay' %>
+                      <%= check_box_tag 'giropay_payment', 'Giropay', params[:payment_methods].include?('Giropay')%>
+                      <%= label_tag 'giropay_payment', 'Giropay', :name => "payment_methods[]" %>
                     </li>
                     <li>
-                      <%= check_box_tag 'payment_methods[]', 'Skrill', params[:payment_methods].include?('Skrill')%>
-                      <%= label_tag 'payment_methods[]', 'Skrill' %>
+                      <%= check_box_tag 'skrill_payment', 'Skrill', params[:payment_methods].include?('Skrill')%>
+                      <%= label_tag 'skrill_payment', 'Skrill', :name => "payment_methods[]" %>
                     </li>
                     <li>
-                      <%= check_box_tag 'payment_methods[]', 'iDeal', params[:payment_methods].include?('iDeal')%>
-                      <%= label_tag 'payment_methods[]', 'iDeal' %>
+                      <%= check_box_tag 'ideal_payment', 'iDeal', params[:payment_methods].include?('iDeal')%>
+                      <%= label_tag 'ideal_payment', 'iDeal', :name => "payment_methods[]" %>
                     </li>
                     <li>
-                      <%= check_box_tag 'payment_methods[]', 'Bancontact / Mister', params[:payment_methods].include?('Bancontact / Mister')%>
-                      <%= label_tag 'payment_methods[]', 'Bancontact / Mister' %>
+                      <%= check_box_tag 'bancontact_payment', 'Bancontact / Mister', params[:payment_methods].include?('Bancontact / Mister') %>
+                      <%= label_tag 'bancontact_payment', 'Bancontact / Mister', :name => "payment_methods[]" %>
                     </li>
 
                     <!-- FEATURES FILTER SELECTION -->
                     <br>
                     <h6><b>FEATURES</b></h6>
                     <li>
-                      <%= check_box_tag 'features[]', 'Beginner Friendly', params[:features].include?('Beginner Friendly')  %>
-                      <%= label_tag 'features[]', 'Beginner Friendly' %>
+                      <%= check_box_tag 'beginner_friendly_features', 'Beginner Friendly', params[:features].include?('Beginner Friendly'), :name => "features[]" %>
+                      <%= label_tag 'beginner_friendly_features', 'Beginner Friendly' %>
                     </li>
                     <li>
-                      <%= check_box_tag 'features[]', 'Instant Verification', params[:features].include?('Instant Verification')  %>
-                      <%= label_tag 'features[]', 'Instant Verification' %>
+                      <%= check_box_tag 'instant_verification_features', 'Instant Verification', params[:features].include?('Instant Verification'), :name => "features[]"  %>
+                      <%= label_tag 'instant_verification_features', 'Instant Verification' %>
                     </li>
                     <li>
-                      <%= check_box_tag 'features[]', 'Integrated Wallet', params[:features].include?('Integrated Wallet')  %>
-                      <%= label_tag 'features[]', 'Integrated Wallet' %>
+                      <%= check_box_tag 'integrated_wallet_features', 'Integrated Wallet', params[:features].include?('Integrated Wallet'), :name => "features[]" %>
+                      <%= label_tag 'integrated_wallet_features', 'Integrated Wallet' %>
                     </li>
 
                     <!-- SECURITY FILTER SELECTION -->
                     <br>
                     <h6><b>SECURITY</b></h6>
                     <li>
-                      <%= check_box_tag 'security[]', 'Two-factor Authentication', params[:security].include?('Two-factor Authentication')  %>
-                      <%= label_tag 'security[]', 'Two-factor Authentication' %>
+                      <%= check_box_tag 'two_factor_auth_security', 'Two-factor Authentication', params[:security].include?('Two-factor Authentication'), :name => "security[]"  %>
+                      <%= label_tag 'two_factor_auth_security', 'Two-factor Authentication' %>
                     </li>
                     <li>
-                      <%= check_box_tag 'security[]', 'Cold Storage', params[:security].include?('Cold Storage')  %>
-                      <%= label_tag 'security[]', 'Cold Storage' %>
+                      <%= check_box_tag 'cold_storage_security', 'Cold Storage', params[:security].include?('Cold Storage'), :name => "security[]"  %>
+                      <%= label_tag 'cold_storage_security', 'Cold Storage' %>
                     </li>
                     <li>
-                      <%= check_box_tag 'security[]', 'Multisig Wallets', params[:security].include?('Multisig Wallets')  %>
-                      <%= label_tag 'security[]', 'Multisig Wallets' %>
+                      <%= check_box_tag 'multisig_wallets_security', 'Multisig Wallets', params[:security].include?('Multisig Wallets'), :name => "security[]"  %>
+                      <%= label_tag 'multisig_wallets_security', 'Multisig Wallets' %>
                     </li>
                   </ul>
 
@@ -143,7 +152,7 @@
                 </div><!-- /refine results -->
                 <!-- price-alert-modal -->
                 <br>
-                <button id="myBtn" class="btn btn-primary btn-block"">Price Alert</button>
+                <button id="myBtn" class="btn btn-primary btn-block btn-outline-purple"">Price Alert</button>
                 <div id="myModal" class="modal">
                   <div class="email-modal-content">
                     <span class="close">&times;</span>

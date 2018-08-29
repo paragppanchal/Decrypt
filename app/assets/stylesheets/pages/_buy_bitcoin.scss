@@ -53,7 +53,8 @@
   text-align: center;
 }
 .logo-size{
-  height:25px;
+  // height:50px;
+  width: 120px;
 }
 .logo-block{
   display:block;
@@ -94,26 +95,13 @@
   margin-top: 5px;
 }
 .message-body {
-  padding-left: 10px;
-  font-size: 13px;
-  color: rgba(0,0,0,0.7);
-}
-.message-body {
   padding-left: 20px;
   color: rgba(0,0,0,0.4);
-}
-.message-body strong{
-  color: rgba(0,0,0,0.9);
-  color: rgba(0,0,0,0.9);
 }
 .message-body p {
   margin: 6px 0;
 }
-.message-status {
-  font-size: 24px;
-  font-weight: bold;
-  text-align: right;
-}
+
 .status.accepted {
   color: #04A366;
 }
@@ -234,22 +222,42 @@ text-align:center;
 .modal-main{
   padding:50px;
 }
+.modal-main-img{
+display:flex;
+justify-content:center;
+align-items:center;
+}
+.modal-main-content{
+  padding: 50px 0px;
+  text-align:left;
+}
 .modal-main-footer{
   display:flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   position:absolute;
   bottom:60px;
+  width: 30%;
 }
 .modal-tips{
-  padding:50px;
+  padding:30px;
 }
-
+.modal-tips p{
+  padding:10px;
+}
 .modal-score{
-  padding:50px;
+  margin-top:20px;
+  padding:20px;
   text-align:center;
 }
+
+input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
 }
 
 input[type="checkbox"] {
@@ -258,4 +266,44 @@ input[type="checkbox"] {
     height: 16px;
     width: 16px;
     margin-right: 10px;
+}
+.refine-results-search form{
+    display: flex;
+  }
+  .refine-results-form-control{
+    display: block;
+width: 77%;
+height: calc(3.375rem + 2px);
+padding: 0.9375rem 0.9375rem;
+font-size: 1rem;
+line-height: 1.5;
+color: #151515;
+background-color: #fff;
+background-clip: padding-box;
+border: 1px solid #e5e5e5;
+border-radius: 0.25rem;
+border-top-right-radius: 0px;
+border-bottom-right-radius: 0px;
+transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+.refine-results-button{
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+  .hero-compare-page{
+    padding-bottom: 0!important;
+  }
+.css-unselect-all-fields{
+  display:none;
+}
+.modal-tips-row{
+display: flex;
+justify-content: center;
+align-content: center;
+}
+.css-checkbox-display-none{
+  display:none;
+}
+.checkbox-filter{
+  margin-bottom:20px;
 }
