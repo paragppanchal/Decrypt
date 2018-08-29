@@ -31,6 +31,16 @@ class FetchMarketSnapshotJob < ApplicationJob
       fetched_exchange = HitbtcExchange.new('BTC', 'USD')
     when "itbtc"
       fetched_exchange = ItbitExchange.new('BTC', 'USD')
+    when "bitstamp"
+      fetched_exchange = BitstampExchange.new('BTC', 'USD')
+    when "bitfinex"
+      fetched_exchange = BitfinexExchange.new('BTC', 'USD')
+    when "kraken"
+      fetched_exchange = KrakenExchange.new('BTC', 'USD')
+    when "lykke"
+      fetched_exchange = LykkeExchange.new('BTC', 'USD')
+    when "independentreserve"
+      fetched_exchange = IndependentreserveExchange.new('BTC', 'USD')
     else
       puts 'exchange not found...'
     end
@@ -39,13 +49,13 @@ class FetchMarketSnapshotJob < ApplicationJob
     fetched_exchange.fetch_sell_price!
 
     # create exchange obj. instance
-    #exchange = Exchange.find_by(name: exchange.name)
+    # exchange = Exchange.find_by(name: exchange.name)
     # create base_coin obj. instance
     base_coin = Coin.find_by(currency_code: fetched_exchange.base_currency_code)
     # create quote_coin obj. instance
     quote_coin = Coin.find_by(currency_code: fetched_exchange.quote_currency_code)
 
-    #check if record already exists then update it or else create a new one.
+    # check if record already exists then update it or else create a new one.
     if MarketSnapshot.where(exchange: exchange, base_coin: base_coin, quote_coin: quote_coin).exists?
       # record already exists so update buy and sell prices
       market_snapshot_record = MarketSnapshot.find_by(exchange: exchange, base_coin: base_coin, quote_coin: quote_coin)

@@ -34,7 +34,7 @@ class BuyRateController < ApplicationController
     params[:security] ||= []
   end
 
-  # private
+  private
 
   def filter_exchanges(market_snapshots, q_amt, filters={})
 
