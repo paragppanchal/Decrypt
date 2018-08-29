@@ -120,13 +120,7 @@
   color:#FFC400;
   font-size: 13px;
 }
-.exchange-table-row{
-display:flex;
-flex:1;
-justify-content:space-between;
-align-items:center;
-width:100%;
-}
+
 // modal
 .exchange-modal{
   display:none;
@@ -307,3 +301,28 @@ align-content: center;
 .checkbox-filter{
   margin-bottom:20px;
 }
+
+@media (min-width: 768px) {
+.exchange-table-row{
+display:flex;
+flex:1;
+justify-content:space-between;
+align-items:center;
+width:100%;
+}
+}
+@media (max-width: 768px) {
+.comparison-results{
+padding-left:0;
+}
+.action-button, .message-name{
+  text-align:center;
+}
+.logo-block{
+  display: initial;
+}
+.section-decorated-bottom{
+  padding-bottom:55px;
+}
+}
+

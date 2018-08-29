@@ -1,0 +1,83 @@
+<ul>
+                      <!-- PAYMENT METHODS FILTER SELECTION -->
+                      <br>
+                      <label class="checkbox-filter">
+                        <input type="checkbox" class="js-select-all css-checkbox css-checkbox-display-none">
+                        <span class="js-select-all-fields">CHECK ALL <i class="fas fa-check"></i></span>
+                        <span class="js-unselect-all-fields css-unselect-all-fields">UNCHECK ALL <i class="fas fa-times"></i></span>
+                      </label>
+
+                      <h6><b>PAYMENT METHODS</b></h6>
+                      <li>
+                        <%= check_box_tag 'swift_payment', 'SWIFT Bank Transfer', params[:payment_methods].include?('SWIFT Bank Transfer')%>
+                        <%= label_tag 'swift_payment', 'SWIFT Bank Transfer', :name => "payment_methods[]" %>
+                      </li>
+                      <li>
+                        <%= check_box_tag 'sepa_payment', 'SEPA Bank Transfer', params[:payment_methods].include?('SEPA Bank Transfer'), :name => "payment_methods[]" %>
+                        <%= label_tag 'sepa_payment', 'SEPA Bank Transfer' %>
+                      </li>
+                      <li>
+                        <%= check_box_tag 'visa_payment', 'VISA', params[:payment_methods].include?('VISA'), :name => "payment_methods[]" %>
+                        <%= label_tag 'visa_payment', 'VISA' %>
+                      </li>
+                      <li>
+                        <%= check_box_tag 'mastercard_payment', 'Mastercard', params[:payment_methods].include?('Mastercard')%>
+                        <%= label_tag 'mastercard_payment', 'Mastercard', :name => "payment_methods[]" %>
+                      </li>
+                      <li>
+                        <%= check_box_tag 'paypal_payment', 'Paypal', params[:payment_methods].include?('Paypal')%>
+                        <%= label_tag 'paypal_payment', 'Paypal', :name => "payment_methods[]" %>
+                      </li>
+                      <li>
+                        <%= check_box_tag 'sofort_payment', 'Sofort', params[:payment_methods].include?('Sofort')%>
+                        <%= label_tag 'sofort_payment', 'Sofort', :name => "payment_methods[]" %>
+                      </li>
+                      <li>
+                        <%= check_box_tag 'giropay_payment', 'Giropay', params[:payment_methods].include?('Giropay')%>
+                        <%= label_tag 'giropay_payment', 'Giropay', :name => "payment_methods[]" %>
+                      </li>
+                      <li>
+                        <%= check_box_tag 'skrill_payment', 'Skrill', params[:payment_methods].include?('Skrill')%>
+                        <%= label_tag 'skrill_payment', 'Skrill', :name => "payment_methods[]" %>
+                      </li>
+                      <li>
+                        <%= check_box_tag 'ideal_payment', 'iDeal', params[:payment_methods].include?('iDeal')%>
+                        <%= label_tag 'ideal_payment', 'iDeal', :name => "payment_methods[]" %>
+                      </li>
+                      <li>
+                        <%= check_box_tag 'bancontact_payment', 'Bancontact / Mister', params[:payment_methods].include?('Bancontact / Mister') %>
+                        <%= label_tag 'bancontact_payment', 'Bancontact / Mister', :name => "payment_methods[]" %>
+                      </li>
+
+                      <!-- FEATURES FILTER SELECTION -->
+                      <br>
+                      <h6><b>FEATURES</b></h6>
+                      <li>
+                        <%= check_box_tag 'beginner_friendly_features', 'Beginner Friendly', params[:features].include?('Beginner Friendly'), :name => "features[]" %>
+                        <%= label_tag 'beginner_friendly_features', 'Beginner Friendly' %>
+                      </li>
+                      <li>
+                        <%= check_box_tag 'instant_verification_features', 'Instant Verification', params[:features].include?('Instant Verification'), :name => "features[]"  %>
+                        <%= label_tag 'instant_verification_features', 'Instant Verification' %>
+                      </li>
+                      <li>
+                        <%= check_box_tag 'integrated_wallet_features', 'Integrated Wallet', params[:features].include?('Integrated Wallet'), :name => "features[]" %>
+                        <%= label_tag 'integrated_wallet_features', 'Integrated Wallet' %>
+                      </li>
+
+                      <!-- SECURITY FILTER SELECTION -->
+                      <br>
+                      <h6><b>SECURITY</b></h6>
+                      <li>
+                        <%= check_box_tag 'two_factor_auth_security', 'Two-factor Authentication', params[:security].include?('Two-factor Authentication'), :name => "security[]"  %>
+                        <%= label_tag 'two_factor_auth_security', 'Two-factor Authentication' %>
+                      </li>
+                      <li>
+                        <%= check_box_tag 'cold_storage_security', 'Cold Storage', params[:security].include?('Cold Storage'), :name => "security[]"  %>
+                        <%= label_tag 'cold_storage_security', 'Cold Storage' %>
+                      </li>
+                      <li>
+                        <%= check_box_tag 'multisig_wallets_security', 'Multisig Wallets', params[:security].include?('Multisig Wallets'), :name => "security[]"  %>
+                        <%= label_tag 'multisig_wallets_security', 'Multisig Wallets' %>
+                      </li>
+                    </ul>
