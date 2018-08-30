@@ -10,7 +10,7 @@
   <h6><b>PAYMENT METHODS</b></h6>
   <li>
     <%= check_box_tag 'swift_payment', 'SWIFT Bank Transfer', params[:payment_methods].include?('SWIFT Bank Transfer'), :name => "payment_methods[]" %>
-    <%= label_tag 'swift_payment', 'SWIFT Bank Transfer', :name => "payment_methods[]" %>
+    <%= label_tag 'swift_payment', 'SWIFT Bank Transfer' %>
   </li>
   <li>
     <%= check_box_tag 'sepa_payment', 'SEPA Bank Transfer', params[:payment_methods].include?('SEPA Bank Transfer'), :name => "payment_methods[]" %>
@@ -21,32 +21,32 @@
     <%= label_tag 'visa_payment', 'VISA' %>
   </li>
   <li>
-    <%= check_box_tag 'mastercard_payment', 'Mastercard', params[:payment_methods].include?('Mastercard')%>
-    <%= label_tag 'mastercard_payment', 'Mastercard', :name => "payment_methods[]" %>
+    <%= check_box_tag 'mastercard_payment', 'Mastercard', params[:payment_methods].include?('Mastercard'), :name => "payment_methods[]"%>
+    <%= label_tag 'mastercard_payment', 'Mastercard' %>
   </li>
   <li>
-    <%= check_box_tag 'paypal_payment', 'Paypal', params[:payment_methods].include?('Paypal')%>
-    <%= label_tag 'paypal_payment', 'Paypal', :name => "payment_methods[]" %>
+    <%= check_box_tag 'paypal_payment', 'Paypal', params[:payment_methods].include?('Paypal'), :name => "payment_methods[]"%>
+    <%= label_tag 'paypal_payment', 'Paypal' %>
   </li>
   <li>
-    <%= check_box_tag 'sofort_payment', 'Sofort', params[:payment_methods].include?('Sofort')%>
-    <%= label_tag 'sofort_payment', 'Sofort', :name => "payment_methods[]" %>
+    <%= check_box_tag 'sofort_payment', 'Sofort', params[:payment_methods].include?('Sofort'), :name => "payment_methods[]"%>
+    <%= label_tag 'sofort_payment', 'Sofort' %>
   </li>
   <li>
-    <%= check_box_tag 'giropay_payment', 'Giropay', params[:payment_methods].include?('Giropay')%>
-    <%= label_tag 'giropay_payment', 'Giropay', :name => "payment_methods[]" %>
+    <%= check_box_tag 'giropay_payment', 'Giropay', params[:payment_methods].include?('Giropay'), :name => "payment_methods[]"%>
+    <%= label_tag 'giropay_payment', 'Giropay' %>
   </li>
   <li>
-    <%= check_box_tag 'skrill_payment', 'Skrill', params[:payment_methods].include?('Skrill')%>
-    <%= label_tag 'skrill_payment', 'Skrill', :name => "payment_methods[]" %>
+    <%= check_box_tag 'skrill_payment', 'Skrill', params[:payment_methods].include?('Skrill'), :name => "payment_methods[]"%>
+    <%= label_tag 'skrill_payment', 'Skrill' %>
   </li>
   <li>
-    <%= check_box_tag 'ideal_payment', 'iDeal', params[:payment_methods].include?('iDeal')%>
-    <%= label_tag 'ideal_payment', 'iDeal', :name => "payment_methods[]" %>
+    <%= check_box_tag 'ideal_payment', 'iDeal', params[:payment_methods].include?('iDeal'), :name => "payment_methods[]"%>
+    <%= label_tag 'ideal_payment', 'iDeal' %>
   </li>
   <li>
     <%= check_box_tag 'bancontact_payment', 'Bancontact / Mister', params[:payment_methods].include?('Bancontact / Mister'), :name => "payment_methods[]" %>
-    <%= label_tag 'bancontact_payment', 'Bancontact / Mister', :name => "payment_methods[]" %>
+    <%= label_tag 'bancontact_payment', 'Bancontact / Mister' %>
   </li>
 
   <!-- FEATURES FILTER SELECTION -->
