@@ -231,7 +231,7 @@
         if (!a.next().hasClass('show')) {
           a.parents('.dropdown-menu').first().find('.show').removeClass("show");
         }
-
+alert('hi')
         var $subMenu = a.next(".dropdown-menu");
         $subMenu.toggleClass('show');
 
@@ -311,9 +311,9 @@
       });
 
       // Smooth Scroll
-      $(function () {
-        var scroll = new SmoothScroll('[data-scroll]');
-      });
+      // $(function () {
+      //   var scroll = new SmoothScroll('[data-scroll]');
+      // });
 
 
       // Filtering
