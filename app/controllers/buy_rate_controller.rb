@@ -16,6 +16,21 @@ class BuyRateController < ApplicationController
       query_amount = params[:amount].to_f
     end
 
+    params[:payment_methods] ||= [
+      "SWIFT Bank Transfer",
+      "SEPA Bank Transfer",
+      "Mastercard",
+      "VISA",
+      "Paypal",
+      "Sofort",
+      "Giropay",
+      "Skrill",
+      "iDeal",
+      "Bancontact / Mister"
+    ]
+    params[:features] ||= []
+    params[:security] ||= []
+
     # get the filter settings from the view
     payment_methods_filter = params[:payment_methods]
     features_filter = params[:features]
@@ -28,10 +43,6 @@ class BuyRateController < ApplicationController
                                             features: features_filter,
                                             security: security_filter
                                           )
-
-    params[:payment_methods] ||= ["SWIFT Bank Transfer", "SEPA Bank Transfer", "Mastercard", "VISA", "Paypal", "Sofort", "Giropay", "Skrill", "iDeal", "Bancontact / Mister"]
-    params[:features] ||= []
-    params[:security] ||= []
 
     respond_to do |format|
       format.html
