@@ -1,6 +1,7 @@
 var amount = document.getElementById("amount");
 
-amount.addEventListener("input", function (event) {
+if (amount) {
+  amount.addEventListener("input", function (event) {
   if (amount.validity.typeMismatch) {
     amount.setCustomValidity("Please enter an amount!");
   }
@@ -8,3 +9,5 @@ amount.addEventListener("input", function (event) {
     amount.setCustomValidity("");
   }
 });
+}
+
