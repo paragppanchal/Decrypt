@@ -1,100 +1,99 @@
-                <% b = @filtered_exchanges %>
-                <div class="results-sort">
-                  <p><%= b.count %> results sorted by Best Price</p>
-                  <!-- <p>Sort By</p> -->
+<% b = @filtered_exchanges %>
+<div class="results-sort">
+  <p><%= b.count %> results sorted by Best Price</p>
+  <!-- <p>Sort By</p> -->
+</div>
+<ul class="comparison-results ">
+
+  <%  b.each do |eh| %>
+
+  <li class="results-list card js-results-list">
+    <div class="exchange-table-row">
+      <div class="message-name">
+
+        <%= image_tag("#{eh[:exchange].name}.png", :alt => "#{eh[:exchange].name}", class:'logo-size logo-block') %>
+        <div class="exchange-ratings">
+
+          <% eh[:exchange].rating.times do %>
+          <%= icon('star', 'Font Awesome', class: 'fa fa-star star-yellow') %>
+
+          <% end %>
+        </div>
+        <div class="more-info js-exchange-modal-click">
+          <h6>Read More</h6>
+        </div>
+      </div>
+
+
+      <div class="message-status">
+        <% if params[:amount].blank? %>
+        <h5><b><i class="fab fa-btc"></i> 1 = USD <%= eh[:market_snapshot].buy_price.round(2) %></b></h5>
+        <% else %>
+        <p>$<%= params[:amount] %> will get you:</p>
+        <h5><b><i class="fab fa-btc"></i> <%= eh[:bitcoin].round(4) %> </b></h5>
+        <% end %>
+      </div>
+
+      <div class="action-button">
+        <p><i class="fab fa-btc"></i> 1 = $<%= eh[:market_snapshot].buy_price.round(2) %></p>
+        <a href= <%= eh[:exchange].url %> target="_blank" >
+          <button type="button" class="btn btn-primary">Go to site</button>
+        </a>
+      </div>
+    </div>
+    <div class="exchange-modal js-exchange-modal">
+      <div class="exchange-modal-content">
+        <div class="exchange-modal-flex">
+          <div class="exchange-modal-column">
+            <div class="exchange-modal-card rowspan">
+              <div class="modal-main">
+                <div class="modal-main-img">
+                  <%= image_tag("#{eh[:exchange].name}.png", :alt => "#{eh[:exchange].name}", class:' logo-block, logo-size') %>
                 </div>
-                <ul class="comparison-results ">
+                <div class="modal-main-content">
+                  <h6><b>Country:</b> <%= eh[:exchange].country %></h6>
 
-                  <%  b.each do |eh| %>
+                  <h6><b>Verification Time:</b> <%= eh[:exchange].verification_time %></h6>
+                  <h6><b>Fee:</b> <%= eh[:exchange].fees %></h6>
+                  <h6><b>Fee Description:</b> <%= eh[:exchange].fee_description %></h6>
+                </div>
 
-                  <li class="results-list card js-results-list">
-                    <div class="exchange-table-row">
-                      <div class="message-name">
+                <div class="modal-main-footer">
+                  <%= link_to 'Read Review', learn_path, class:"btn btn-sm btn-primary btn-rounded mt-2" %>
+                  <%= link_to 'Compare', buy_bitcoin_path, class:"btn btn-sm btn-rounded btn-outline-primary mt-2" %>
+                </div>
+              </div>
+            </div>
+          </div>
 
-                        <%= image_tag("#{eh[:exchange].name}.png", :alt => "#{eh[:exchange].name}", class:'logo-size logo-block') %>
-                        <div class="exchange-ratings">
+          <div class="exchange-modal-column">
+            <div class="exchange-modal-card exchange-modal-column-sm">
+              <div class="modal-score">
+                <h6><b>EXCHANGE SCORE</b></h6>
+                <h4><%= eh[:exchange].rating %></h4>
+                <% eh[:exchange].rating.times do %>
+                <%= icon('star', 'Font Awesome', class: 'fa fa-star star-yellow') %>
+                <% end %>
 
-                          <% eh[:exchange].rating.times do %>
-                          <%= icon('star', 'Font Awesome', class: 'fa fa-star star-yellow') %>
-
-                          <% end %>
-                        </div>
-                        <div class="more-info js-exchange-modal-click">
-                          <h6>Read More</h6>
-                        </div>
-                      </div>
-
-
-                      <div class="message-status">
-                        <% if params[:amount].blank? %>
-                        <h5><b><i class="fab fa-btc"></i> 1 = USD <%= eh[:market_snapshot].buy_price.round(2) %></b></h5>
-                        <% else %>
-                        <p>$<%= params[:amount] %> will get you:</p>
-                        <h5><b><i class="fab fa-btc"></i> <%= eh[:bitcoin].round(4) %> </b></h5>
-                        <% end %>
-                      </div>
-
-                      <div class="action-button">
-                        <p><i class="fab fa-btc"></i> 1 = $<%= eh[:market_snapshot].buy_price.round(2) %></p>
-                        <a href= <%= eh[:exchange].url %> target="_blank" >
-                          <button type="button" class="btn btn-primary">Go to site</button>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="exchange-modal js-exchange-modal">
-                      <div class="exchange-modal-content">
-                        <div class="exchange-modal-flex">
-                          <div class="exchange-modal-column">
-                            <div class="exchange-modal-card rowspan">
-                              <div class="modal-main">
-                                <div class="modal-main-img">
-                                  <%= image_tag("#{eh[:exchange].name}.png", :alt => "#{eh[:exchange].name}", class:' logo-block, logo-size') %>
-                                </div>
-                                <div class="modal-main-content">
-                                  <h6><b>Country:</b> <%= eh[:exchange].country %></h6>
-
-                                <h6><b>Verification Time:</b> <%= eh[:exchange].verification_time %></h6>
-                                <h6><b>Fee:</b> <%= eh[:exchange].fees %></h6>
-                                <h6><b>Fee Description:</b> <%= eh[:exchange].fee_description %></h6>
-                                </div>
-
-                                <div class="modal-main-footer">
-                                  <%= link_to 'Read Review', learn_path, class:"btn btn-sm btn-primary btn-rounded mt-2" %>
-                                  <%= link_to 'Compare', buy_bitcoin_path, class:"btn btn-sm btn-rounded btn-outline-primary mt-2" %>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="exchange-modal-column">
-                            <div class="exchange-modal-card exchange-modal-column-sm">
-                              <div class="modal-score">
-                                <h6><b>EXCHANGE SCORE</b></h6>
-                                <h4><%= eh[:exchange].rating %></h4>
-                                <% eh[:exchange].rating.times do %>
-                                <%= icon('star', 'Font Awesome', class: 'fa fa-star star-yellow') %>
-                                <% end %>
-
-                              </div>
-                            </div>
+              </div>
+            </div>
 
 
 
 
-                            <div class="exchange-modal-card exchange-modal-column-sm">
-                              <div class="modal-tips">
-                                <div class="modal-tips-row">
-                                  <%= image_tag("lightbulb.png", :alt => "lightbulb") %>
-                                </div>
-                                <p>Understand the language around Bitcoin and Cryptocurrencies to confidently explore the world of digital currency.</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="js-exchange-modal-click close-modal">x
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <% end %>
-                </ul>
+            <div class="exchange-modal-card exchange-modal-column-sm">
+              <div class="modal-tips">
+                <div class="modal-tips-row">
+                  <%= image_tag("lightbulb.png", :alt => "lightbulb") %>
+                </div>
+                <p>Understand the language around Bitcoin and Cryptocurrencies to confidently explore the world of digital currency.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="js-exchange-modal-click close-modal">x</div>
+      </div>
+    </div>
+  </li>
+  <% end %>
+</ul>
